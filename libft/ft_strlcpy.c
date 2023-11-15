@@ -33,7 +33,7 @@ size_t	strlcpy(char*dest, const char*src, size_t n)
 	return (len);
 }
 
-#include <stdio.h>
+/*#include <stdio.h>
 
 int	main(void)
 {
@@ -41,4 +41,4 @@ int	main(void)
 	char dest[50];
 	printf("%d\n", ft_strlcpy(dest, test, 7));
 	printf("%s\n", dest);
-}
+}*/
