@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mrabelo- <mrabelo-@student.42berlin.d      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/17 14:02:41 by mrabelo-          #+#    #+#             */
+/*   Updated: 2023/11/17 14:04:09 by mrabelo-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 char	*ft_strrchr(const char*s, int c)
 {
@@ -9,7 +20,7 @@ char	*ft_strrchr(const char*s, int c)
 	temp_c = (char)c;
 	temp_s = (char *)s;
 	while (temp_s[i] != '\0')
-                i++;
+		i++;
 	if (temp_s[i] == '\0' && temp_c == '\0')
 		return (temp_s + i);
 	while (i >= 0)
