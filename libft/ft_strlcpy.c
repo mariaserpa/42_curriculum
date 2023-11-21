@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strlcpy.c                                          :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrabelo- <mrabelo-@student.42berlin.d      +#+  +:+       +#+        */
+/*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 16:22:16 by mrabelo-          #+#    #+#             */
-/*   Updated: 2023/11/14 17:08:46 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2023/11/21 14:20:32 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@ size_t	ft_strlcpy(char*dest, const char*src, size_t n)
 	size_t	i;
 	size_t	len;
 
-	len = 0;
-	while (src[len] != '\0')
-		len++;
+	len = ft_strlen(src);
 	i = 0;
 	if (n != 0)
 	{
