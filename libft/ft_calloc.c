@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 16:38:32 by mrabelo-          #+#    #+#             */
-/*   Updated: 2023/11/17 17:06:19 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2023/11/21 17:02:51 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*ft_calloc(size_t number, size_t size)
 {
 	void	*dest;
 
-	dest = (void *)malloc(sizeof(number * size));
+	dest = (void *)malloc(number * size);
 	if (dest == 0)
 		return (0);
 	ft_bzero(dest, number * size);

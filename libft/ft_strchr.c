@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 18:28:50 by mrabelo-          #+#    #+#             */
-/*   Updated: 2023/11/16 18:49:58 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2023/11/21 16:52:53 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ char	*ft_strchr(const char*s, int c)
 	i = 0;
 	temp_c = (char)c;
 	temp_s = (char *)s;
-	if (temp_s[i] == '\0' && temp_c == '\0')
-		return (temp_s + i);
 	while (temp_s[i] != '\0')
 	{
 		if (temp_s[i] == temp_c)
 			return (temp_s + i);
 		i++;
 	}
+	if (temp_s[i] == '\0' && temp_c == '\0')
+		return (temp_s + i);
 	return (0);
 }
 
