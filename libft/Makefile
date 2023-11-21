@@ -1,42 +1,61 @@
 NAME = libft.a
-SRC =	./ft_isalnum.c		\
-	./ft_isalpha.c		\
-	./ft_isascii.c		\
-	./ft_isdigit.c		\
-	./ft_isprint.c		\
-	./ft_strlen.c		\
-	./ft_toupper.c		\
-	./ft_tolower.c		\
-	./ft_memset.c		\
-	./ft_bzero.c		\
-	./ft_memcpy.c		\
-	./ft_memmove.c		\
-	./ft_strlcpy.c		\
-	./ft_strlcat.c		\
-	./ft_strncmp.c		\
-	./ft_strchr.c		\
-	./ft_strrchr.c		\
-	./ft_memchr.c		\
-	./ft_memcmp.c		\
-	./ft_strnstr.c		\
-	./ft_atoi.c			\
-	./ft_strdup.c		\
-	./ft_calloc.c		\
 
-OBJS = $(SRC:.c=.o)
+SRC =	$(addsuffix .c, ./ft_isalnum	\
+						./ft_isalpha	\
+						./ft_isascii	\
+						./ft_isdigit	\
+						./ft_isprint	\
+						./ft_strlen		\
+						./ft_toupper	\
+						./ft_tolower	\
+						./ft_memset		\
+						./ft_bzero		\
+						./ft_memcpy		\
+						./ft_memmove	\
+						./ft_strlcpy	\
+						./ft_strlcat	\
+						./ft_strncmp	\
+						./ft_strchr		\
+						./ft_strrchr	\
+						./ft_memchr		\
+						./ft_memcmp		\
+						./ft_strnstr	\
+						./ft_atoi		\
+						./ft_strdup		\
+						./ft_calloc)
 
-HDRS = libft.h
+OBJS := $(SRC:%.c=%.o)
+
+HEADER = libft.h
+
+INC_DIR = .
+CC = cc
+CCFLAGS = -Wall -Wextra -Werror
+CPPFLAGS = -I$(INC_DIR)
+
+RM = rm -f
+ARNAME = ar rcs $(NAME)
+RANNAME = ranlib $(NAME)
+
+OBJS_ALL = $(OBJS)
+
 all: $(NAME)
 
-$(NAME):
-	cc -c -Wall -Wextra -Werror -I $(HDRS) $(SRC)
-	ar rc $(NAME) $(OBJS)
-	ranlib $(NAME)
+$(NAME): $(OBJS)
+	$(ARNAME) $(OBJS)
+	$(RANNAME)
+
+%.o: %.c
+	$(CC) $(CCFLAGS) $(CPPFLAGS) -o $@ -c $<
 
 clean:
-	/bin/rm -f $(OBJS)
+	$(RM) $(OBJS_ALL)
 
 fclean: clean
-	/bin/rm -f $(NAME)
+	$(RM) $(NAME)
 
 re: fclean all
+
+everything: $(OBJS_ALL)
+	$(ARNAME) $(OBJS_ALL)
+	$(RANNAME)
