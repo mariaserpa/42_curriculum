@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 13:38:10 by mrabelo-          #+#    #+#             */
-/*   Updated: 2023/11/21 16:16:52 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2023/11/21 18:18:13 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ char		*ft_strdup(const char*src);
 char		*ft_strchr(const char*s, int c);
 char		*ft_strrchr(const char*s, int c);
 char		*ft_strnstr(const char*s, const char*t, size_t len);
+char		*ft_substr(char const*s, unsigned int start, size_t len);
 
 size_t		ft_strlen(const char*s);
 size_t		ft_strlcat(char*dest, const char*src, size_t n);
