@@ -23,7 +23,8 @@ SRC =	$(addsuffix .c, ft_isalnum	\
 						ft_atoi		\
 						ft_strdup		\
 						ft_calloc		\
-						ft_substr)
+						ft_substr		\
+						ft_strjoin)
 
 OBJS := $(SRC:%.c=%.o)
 
