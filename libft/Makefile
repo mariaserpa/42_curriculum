@@ -5,26 +5,27 @@ SRC =	$(addsuffix .c, ft_isalnum	\
 						ft_isascii	\
 						ft_isdigit	\
 						ft_isprint	\
-						ft_strlen		\
+						ft_strlen	\
 						ft_toupper	\
 						ft_tolower	\
-						ft_memset		\
-						ft_bzero		\
-						ft_memcpy		\
+						ft_memset	\
+						ft_bzero	\
+						ft_memcpy	\
 						ft_memmove	\
 						ft_strlcpy	\
 						ft_strlcat	\
 						ft_strncmp	\
-						ft_strchr		\
+						ft_strchr	\
 						ft_strrchr	\
-						ft_memchr		\
-						ft_memcmp		\
+						ft_memchr	\
+						ft_memcmp	\
 						ft_strnstr	\
 						ft_atoi		\
-						ft_strdup		\
-						ft_calloc		\
-						ft_substr		\
-						ft_strjoin)
+						ft_strdup	\
+						ft_calloc	\
+						ft_substr	\
+						ft_strjoin	\
+						ft_strtrim)
 
 OBJS := $(SRC:%.c=%.o)
 
