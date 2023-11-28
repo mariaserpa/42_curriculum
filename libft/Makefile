@@ -1,31 +1,36 @@
 NAME = libft.a
 
-SRC =	$(addsuffix .c, ft_isalnum	\
-						ft_isalpha	\
-						ft_isascii	\
-						ft_isdigit	\
-						ft_isprint	\
-						ft_strlen	\
-						ft_toupper	\
-						ft_tolower	\
-						ft_memset	\
-						ft_bzero	\
-						ft_memcpy	\
-						ft_memmove	\
-						ft_strlcpy	\
-						ft_strlcat	\
-						ft_strncmp	\
-						ft_strchr	\
-						ft_strrchr	\
-						ft_memchr	\
-						ft_memcmp	\
-						ft_strnstr	\
-						ft_atoi		\
-						ft_strdup	\
-						ft_calloc	\
-						ft_substr	\
-						ft_strjoin	\
-						ft_strtrim)
+SRC =	$(addsuffix .c, ft_isalnum		\
+						ft_isalpha		\
+						ft_isascii		\
+						ft_isdigit		\
+						ft_isprint		\
+						ft_strlen		\
+						ft_toupper		\
+						ft_tolower		\
+						ft_memset		\
+						ft_bzero		\
+						ft_memcpy		\
+						ft_memmove		\
+						ft_strlcpy		\
+						ft_strlcat		\
+						ft_strncmp		\
+						ft_strchr		\
+						ft_strrchr		\
+						ft_memchr		\
+						ft_memcmp		\
+						ft_strnstr		\
+						ft_atoi			\
+						ft_strdup		\
+						ft_calloc		\
+						ft_substr		\
+						ft_strjoin		\
+						ft_strtrim		\
+						ft_split		\
+						ft_putchar_fd	\
+						ft_putstr_fd	\
+						ft_putnbr_fd	\
+						ft_putendl_fd)
 
 OBJS := $(SRC:%.c=%.o)
 
