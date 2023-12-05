@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 16:09:28 by mrabelo-          #+#    #+#             */
-/*   Updated: 2023/12/05 18:28:48 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2023/12/05 19:58:30 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@ static int	ft_format(const char*str, va_list args, int i)
 	if (str[i] == 'c')
 		len += ft_print_char((char) va_arg(args, int));
 	else if (str[i] == 's')
-	{
-		/* code */
-	}
+		len += ft_print_string()
 
 }
 

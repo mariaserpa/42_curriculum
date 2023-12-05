@@ -9,7 +9,6 @@
 
 int	ft_printf(const char*input, ...);
 
-
 int	ft_print_char(char c);
 
 #endif
