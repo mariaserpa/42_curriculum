@@ -1,15 +1,16 @@
 NAME = libftprintf.a
 
 SRC = ft_printf.c
-SRC_PRINTERS = $(addprefix printers/, addsuffix .c, ft_print_char,			\
-													ft_print_pointer,		\
-													ft_print_sign_dec_int	\
-													ft_print_str			\
-													ft_print_unsign_dec_int	\
-													ft_print_unsign_hex_int)
-SRC_OPERATORS = $(addprefix printers/operators/, addsuffix .c, ft_putnbr_base 			\
-																ft_putnbr_unknown_base	\
-																ft_strlen)
+SRC_PRINTERS = $(addprefix printers/, ft_print_char.c				\
+										ft_print_pointer.c			\
+										ft_print_sign_dec_int.c		\
+										ft_print_str.c				\
+										ft_print_unsign_dec_int.c	\
+										ft_print_unsign_hex_int.c)
+SRC_OPERATORS = $(addprefix printers/operators/, ft_putnbr_base.c 			\
+													ft_putnbr_hex_base.c	\
+													ft_putnbr_unsign.c		\
+													ft_strlen.c)
 
 OBJS := $(SRC:%.c=%.o)
 OBJS_PRINTERS := $(SRC_PRINTERS:%.c=%.o)
@@ -31,7 +32,6 @@ RANNAME = ranlib $(NAME)
 
 
 all: $(NAME)
-
 $(NAME): $(OBJS) $(OBJS_PRINTERS) $(OBJS_OPERATORS)
 	$(ARNAME) $(OBJS) $(OBJS_PRINTERS) $(OBJS_OPERATORS)
 	$(RANNAME)

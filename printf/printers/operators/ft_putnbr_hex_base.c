@@ -6,13 +6,13 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 11:09:34 by mrabelo-          #+#    #+#             */
-/*   Updated: 2023/12/07 12:16:01 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2023/12/07 16:32:18 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../ft_printf.h"
 
-int	ft_putnbr_hex_base(unsigned int n, char*base)
+int	ft_putnbr_hex_base(unsigned long long n, char*base)
 {
 	int	i;
 
@@ -28,7 +28,7 @@ int	ft_putnbr_hex_base(unsigned int n, char*base)
 }
 
 /*#include <stdio.h>
-int	main() 
+int	main()
 {
 	int num1 = 0x1A;
 	ft_putnbr_hex_base(num1, "0123456789abcdef");
