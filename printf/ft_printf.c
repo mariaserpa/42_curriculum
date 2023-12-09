@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 16:09:28 by mrabelo-          #+#    #+#             */
-/*   Updated: 2023/12/07 18:19:02 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2023/12/09 15:46:28 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,8 @@ int main() {
 	printf("\n");
     ft_printf("Printing a hexadecimal number: %x", 255);
 	printf("\n");
+	ft_printf(" %c %c %c ", '0', 0, '1');
+	printf("\n");
+	printf(" %c %c %c ", '0', 0, '1');
     return (0);
 }*/

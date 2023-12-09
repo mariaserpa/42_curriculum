@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 15:17:11 by mrabelo-          #+#    #+#             */
-/*   Updated: 2023/12/07 17:03:24 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2023/12/08 12:08:21 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_print_sign_dec_int(int n)
 
 	nbr = n;
 	i = 0;
-	i += ft_putnbr_base(n, "0123456789");
+	i += ft_putnbr_base(nbr, "0123456789");
 	if (i == 0 || i < 0)
 		return (-1);
 	return (i);
