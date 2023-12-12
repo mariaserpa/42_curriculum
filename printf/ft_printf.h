@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 15:33:50 by mrabelo-          #+#    #+#             */
-/*   Updated: 2023/12/07 17:20:43 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2023/12/12 19:15:56 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <stdarg.h>
 
 int			ft_printf(const char*input, ...);
-int			ft_print_char(char c);
+int			ft_print_char(int c);
 int			ft_print_str(char*s);
 int			ft_print_sign_dec_int(int n);
 int			ft_print_pointer(void*p_adr);

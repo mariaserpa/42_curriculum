@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 16:09:28 by mrabelo-          #+#    #+#             */
-/*   Updated: 2023/12/09 15:46:28 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2023/12/12 19:13:30 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,19 @@ static int	ft_format(const char*str, va_list args, int i)
 
 	len = 0;
 	if (str[i] == 'c')
-		len += ft_print_char((char) va_arg(args, int));
+		len += ft_print_char(va_arg(args, int));
 	else if (str[i] == 's')
-		len += ft_print_str((char *) va_arg(args, char *));
+		len += ft_print_str(va_arg(args, char *));
 	else if (str[i] == 'd' || str[i] == 'i')
-		len += ft_print_sign_dec_int((int) va_arg(args, int));
+		len += ft_print_sign_dec_int(va_arg(args, int));
 	else if (str[i] == 'p')
-		len += ft_print_pointer((void *) va_arg(args, void *));
+		len += ft_print_pointer(va_arg(args, void *));
 	else if (str[i] == 'u')
 		len += ft_print_unsign_dec_int(
-				(unsigned int) va_arg(args, unsigned int));
+				va_arg(args, unsigned int));
 	else if (str[i] == 'x' || str[i] == 'X')
 		len += ft_print_unsign_hex_int(
-				(unsigned int) va_arg(args, unsigned int), str[i]);
+				va_arg(args, unsigned int), str[i]);
 	else if (str[i] == '%')
 		len += ft_print_char('%');
 	return (len);
