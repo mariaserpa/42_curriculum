@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 00:07:49 by mrabelo-          #+#    #+#             */
-/*   Updated: 2023/12/14 00:22:09 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2023/12/14 20:09:20 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	find_newline(t_list*lst)
 		{
 			if (lst -> content[i] == '\n')
 				return (1);
-			i++;
+			++i;
 		}
 		lst = lst -> next;
 	}
@@ -46,17 +46,17 @@ int	find_length_line(t_list*lst)
 	int	i;
 	int	len;
 
-	if (lst == 0)
+	if (!lst)
 		return (0);
 	len = 0;
 	while (lst)
 	{
 		i = 0;
-		while (lst->content[i])
+		while (lst -> content[i])
 		{
 			if (lst -> content[i] == '\n')
 			{
-				len++; //atention if it is ++len or len++
+				len++;
 				return (len);
 			}
 			i++;
@@ -72,7 +72,7 @@ void	copy_str(t_list*lst, char*str)
 	int	i;
 	int	j;
 
-	if (lst == 0)
+	if (!lst)
 		return ;
 	i = 0;
 	while (lst)
@@ -82,7 +82,6 @@ void	copy_str(t_list*lst, char*str)
 		{
 			if (lst -> content[j] == '\n')
 			{
-				i++;
 				str[i] = '\n';
 				i++;
 				str[i] = '\0';
@@ -92,14 +91,14 @@ void	copy_str(t_list*lst, char*str)
 		}
 		lst = lst -> next;
 	}
-	//str[i] = '\0'; //check if it is really necessary
+	str[i] = '\0';
 }
 
 void	dealloc(t_list**lst, t_list*new_node, char*buffer)
 {
 	t_list	*temp;
 
-	if (*lst == 0)
+	if (!(*lst))
 		return ;
 	while (*lst)
 	{
@@ -117,17 +116,3 @@ void	dealloc(t_list**lst, t_list*new_node, char*buffer)
 		free(new_node);
 	}
 }
-
-/*int	length_node(t_list*lst)
-{
-	int i;
-
-	if (lst == 0)
-		return (0);
-	i = 0;
-	while (lst -> content[i])
-	{
-		i++;
-	}
-	return (i);
-}*/

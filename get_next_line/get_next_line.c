@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 14:29:14 by mrabelo-          #+#    #+#             */
-/*   Updated: 2023/12/14 00:20:45 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2023/12/14 20:17:08 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,19 @@ void	refine_list(t_list**lst)
 
 	buffer = malloc(BUFFER_SIZE + 1);
 	new_node = malloc(sizeof(t_list));
-	if (buffer == 0 || new_node == 0)
+	if (!buffer || !new_node)
 		return ;
 	last_node = ft_lstlast(*lst);
 	i = 0;
 	j = 0;
 	while (last_node -> content[i] && last_node -> content[i] != '\n')
 		++i;
-	while (last_node -> content[i] != '\0' && last_node ->content[++i])
-		buffer[j++] = last_node->content[i];
+	if (last_node -> content[i] == '\n')
+		i += 1;
+	while (last_node -> content[i])
+	{
+		buffer[++j] = last_node->content[++i];
+	}
 	buffer[j] = '\0';
 	new_node -> content = buffer;
 	new_node -> next = 0;
@@ -42,11 +46,11 @@ char	*retrive_line(t_list*lst)
 	int		line_len;
 	char	*final_line;
 
-	if (lst == 0)
+	if (!lst)
 		return (0);
 	line_len = find_length_line(lst);
-	final_line = malloc(line_len + 1); //plus 1 bc of the null character
-	if (final_line == 0)
+	final_line = malloc(line_len + 1);
+	if (!final_line)
 		return (0);
 	copy_str(lst, final_line);
 	return (final_line);
@@ -94,10 +98,10 @@ void	create_list(t_list**lst, int fd)
 
 char	*get_next_line(int fd)
 {
-	static t_list	*lst;
+	static t_list	*lst = 0;
 	char			*finished_line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
+	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, &finished_line, 0) < 0)
 		return (0);
 	create_list(&lst, fd);
 	if (!lst)
@@ -114,9 +118,14 @@ int	main()
 	char	*line;
 	int	lines;
 
-	lines =1;
+	lines = 1;
 	fd = open("text.txt", O_RDONLY);
 
-	while ((line = get_next_line(fd)))
-		printf("%d->%s\n", lines++, line);
+	line = get_next_line(fd);
+	while (line)
+	{
+		printf("%s\n", line);
+		free(line);
+		line = get_next_line(fd);
+	}
 }*/
