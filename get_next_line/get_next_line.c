@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 14:29:14 by mrabelo-          #+#    #+#             */
-/*   Updated: 2023/12/14 20:17:08 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2023/12/15 15:37:57 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	refine_list(t_list**lst)
 		i += 1;
 	while (last_node -> content[i])
 	{
-		buffer[++j] = last_node->content[++i];
+		buffer[j++] = last_node->content[i++];
 	}
 	buffer[j] = '\0';
 	new_node -> content = buffer;
@@ -102,7 +102,10 @@ char	*get_next_line(int fd)
 	char			*finished_line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, &finished_line, 0) < 0)
+	{
+		//free(lst);
 		return (0);
+	}
 	create_list(&lst, fd);
 	if (!lst)
 		return (0);
@@ -116,10 +119,8 @@ int	main()
 {
 	int	fd;
 	char	*line;
-	int	lines;
 
-	lines = 1;
-	fd = open("text.txt", O_RDONLY);
+	fd = open("read_error.txt", O_RDONLY);
 
 	line = get_next_line(fd);
 	while (line)
