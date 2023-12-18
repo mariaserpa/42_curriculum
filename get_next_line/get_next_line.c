@@ -6,11 +6,12 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 14:29:14 by mrabelo-          #+#    #+#             */
-/*   Updated: 2023/12/15 15:37:57 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2023/12/18 19:40:34 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include "stdio.h"
 
 void	refine_list(t_list**lst)
 {
@@ -41,7 +42,7 @@ void	refine_list(t_list**lst)
 	dealloc(lst, new_node, buffer);
 }
 
-char	*retrive_line(t_list*lst)
+char	*retrieve_line(t_list*lst)
 {
 	int		line_len;
 	char	*final_line;
@@ -73,8 +74,7 @@ void	append_node(t_list**lst, char*buffer)
 	new_node -> next = 0;
 }
 
-/*why it needs to be a pointer to a pointer?
-why it needs to use find_newline?*/
+/*why it needs to be a pointer to a pointer?*/
 void	create_list(t_list**lst, int fd)
 {
 	int		bytes_read;
@@ -98,35 +98,41 @@ void	create_list(t_list**lst, int fd)
 
 char	*get_next_line(int fd)
 {
-	static t_list	*lst = 0;
+	static t_list	*lst;
+	t_list			*temp;
 	char			*finished_line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, &finished_line, 0) < 0)
 	{
-		//free(lst);
+		while (lst)
+		{
+			temp = lst->next;
+			free(lst->content);
+			free(lst);
+			lst = temp;
+		}
 		return (0);
 	}
 	create_list(&lst, fd);
 	if (!lst)
 		return (0);
-	finished_line = retrive_line(lst);
+	finished_line = retrieve_line(lst);
 	refine_list(&lst);
 	return (finished_line);
 }
 
-/*#include "stdio.h"
-int	main()
-{
-	int	fd;
-	char	*line;
+// int	main()
+// {
+// 	int	fd;
+// 	char	*line;
 
-	fd = open("read_error.txt", O_RDONLY);
+// 	fd = open("read_error.txt", O_RDONLY);
 
-	line = get_next_line(fd);
-	while (line)
-	{
-		printf("%s\n", line);
-		free(line);
-		line = get_next_line(fd);
-	}
-}*/
+// 	line = get_next_line(fd);
+// 	while (line)
+// 	{
+// 		printf("%s", line);
+// 		free(line);
+// 		line = get_next_line(fd);
+// 	}
+// }

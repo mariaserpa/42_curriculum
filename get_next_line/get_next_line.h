@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 13:44:48 by mrabelo-          #+#    #+#             */
-/*   Updated: 2023/12/14 17:01:32 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2023/12/18 19:39:19 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1
+#  define BUFFER_SIZE 10
 # endif
 
 # include <stdlib.h>
@@ -28,7 +28,7 @@ typedef struct s_list
 }	t_list;
 
 char	*get_next_line(int fd);
-char	*retrive_line(t_list*lst);
+char	*retrieve_line(t_list*lst);
 
 int		find_newline(t_list*lst);
 int		find_length_line(t_list*lst);
