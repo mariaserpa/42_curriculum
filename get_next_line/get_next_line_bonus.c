@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 23:22:01 by mrabelo-          #+#    #+#             */
-/*   Updated: 2023/12/18 23:50:33 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2023/12/19 15:46:29 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ void	append_node(t_list**lst, char*buffer, int fd)
 	new_node -> next = 0;
 }
 
-/*why it needs to be a pointer to a pointer?*/
 void	create_list(t_list**lst, int fd)
 {
 	int		bytes_read;
