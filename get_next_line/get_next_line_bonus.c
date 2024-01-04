@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 23:22:01 by mrabelo-          #+#    #+#             */
-/*   Updated: 2023/12/19 15:46:29 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/01/04 18:42:52 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,18 +122,26 @@ char	*get_next_line(int fd)
 	return (finished_line);
 }
 
-// int	main()
+// int	main(void)
 // {
-// 	int	fd;
-// 	char	*line;
+// 	int		fd3;
+// 	int		fd4;
+// 	char	*line1;
+// 	char	*line2;
 
-// 	fd = open("read_error.txt", O_RDONLY);
-
-// 	line = get_next_line(fd);
-// 	while (line)
+// 	fd3 = open("41_with_nl", O_RDONLY);
+// 	fd4 = open("multiple_line_no_nl", O_RDONLY);
+// 	while (1)
 // 	{
-// 		printf("%s", line);
-// 		free(line);
-// 		line = get_next_line(fd);
+// 		line1 = get_next_line(fd3);
+// 		line2 = get_next_line(fd4);
+// 		if (line1 != NULL)
+// 			printf("File Descriptor 3: %s", line1);
+// 		if (line2 != NULL)
+// 			printf("File Descriptor 4: %s", line2);
+// 		if (line1 == NULL && line2 == NULL)
+// 			break ;
 // 	}
+// 	close(fd3);
+// 	close(fd4);
 // }
