@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 19:29:08 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/02/06 19:29:10 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/03/21 10:56:00 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,19 @@ void	print_error(char*str)
 	ft_printf("Error\n");
 	ft_printf("%s\n", str);
 	exit (1);
+}
+
+void	free_tiles(t_vars *vars)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < vars->map.grid_height)
+	{
+		free(vars->map.tile[i]);
+		vars->map.tile[i] = 0;
+		i++;
+	}
+	free(vars->map.tile);
+	vars->map.tile = 0;
 }

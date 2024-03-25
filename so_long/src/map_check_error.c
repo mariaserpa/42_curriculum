@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 16:48:42 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/02/06 11:29:17 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/03/21 09:47:17 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	check_map_name(char*str)
 
 int	check_character(int c)
 {
-	if (c != COLLECT || c != START || c != EXIT || c != WALL || c != FLOOR)
+	if (c != COLLECT && c != START && c != EXIT && c != WALL && c != FLOOR)
 		return (1);
 	return (0);
 }
