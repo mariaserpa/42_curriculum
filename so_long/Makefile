@@ -6,13 +6,11 @@
 #    By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/07 10:15:12 by mrabelo-          #+#    #+#              #
-#    Updated: 2024/02/07 10:38:48 by mrabelo-         ###   ########.fr        #
+#    Updated: 2024/03/21 06:47:36 by mrabelo-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
-
-BONUS = so_long_bonus
 
 GET_NEXT_LINE = get_next_line/*c
 
@@ -30,8 +28,9 @@ SRC =	$(addprefix src/, main.c 			\
 						map_check_error.c 	\
 						map_check_utils.c	\
 						map_config.c		\
-						map_draw.c			\
-						game_settings.c		)
+						game_settings.c		\
+						game_draw.c			\
+						sprites_settings.c)
 
 
 OBJ = ${SRC:.c=.o}
