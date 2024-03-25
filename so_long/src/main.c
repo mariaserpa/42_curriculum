@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 16:28:30 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/02/07 11:07:21 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/03/20 15:56:56 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ int	main(int argc, char**argv)
 							vars.map.grid_height);
 	vars.addr = mlx_get_data_addr(vars.img, &vars.bpp, \
 								&vars.line_length, &vars.endian);
-	//sprites?
+	load_sprites(&vars);
 	mlx_key_hook(vars.mlx_win, key_board, &vars);
 	mlx_hook(vars.mlx_win, 17, 1L << 0, close_window, &vars);
-	mlx_loop_hook();
+	mlx_loop_hook(vars.mlx, render, &vars);
 	mlx_loop(vars.mlx);
 }
