@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 15:39:23 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/04/09 15:10:35 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/04/11 11:32:42 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 # define WINDOW_H 500 //retirar
 # define WINDOW_W 500 //retirar
 # define WINDOW_NAME "so_long"
-# define WALL '1'
-# define FLOOR '0'
-# define START 'P'
-# define EXIT 'E'
-# define COLLECT 'C'
-# define CHECKED 'R'
+# define WALL "1"
+# define FLOOR "0"
+# define START "P"
+# define EXIT "E"
+# define COLLECT "C"
+# define CHECKED "R"
 # define BOOL
 # define TRUE 1
 # define FALSE 0
