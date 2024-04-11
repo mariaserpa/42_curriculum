@@ -6,21 +6,19 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 15:39:23 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/04/11 11:32:42 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/04/11 15:11:02 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
-# define WINDOW_H 500 //retirar
-# define WINDOW_W 500 //retirar
 # define WINDOW_NAME "so_long"
-# define WALL "1"
-# define FLOOR "0"
-# define START "P"
-# define EXIT "E"
-# define COLLECT "C"
-# define CHECKED "R"
+# define WALL 49  // '0'
+# define FLOOR 48 // '1'
+# define START 80 // 'P'
+# define EXIT 69 // 'E'
+# define COLLECT 67 // 'C'
+# define CHECKED 82 // 'R'
 # define BOOL
 # define TRUE 1
 # define FALSE 0
