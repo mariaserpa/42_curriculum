@@ -5,7 +5,7 @@ FT_PRINTF_DIR = ./ft_printf
 LIBFT_DIR = ./libft
 MLX_DIR = ./mlx
 
-LIBS = ${GET_NEXT_LINE_DIR}/libgnl.a $(FT_PRINTF_DIR)/libftprintf.a $(LIBFT_DIR)/libft.a $(MLX_DIR)/libmlx_Linux.a
+LIBS = ${GET_NEXT_LINE_DIR}/libgnl.a $(FT_PRINTF_DIR)/libftprintf.a $(LIBFT_DIR)/libft.a $(MLX_DIR)/libmlx.a
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g -I/usr/X11/include -Ilib/mlx
@@ -15,17 +15,7 @@ RM = rm -f
 ARNAME = ar rcs $(NAME)
 RANNAME = ranlib $(NAME)
 
-SRC =	$(addprefix src/, main.c 			\
-						map_check_error.c 	\
-						map_config.c		\
-						game_settings.c		\
-						game_movements.c	\
-						game_draw.c			\
-						map_free.c			\
-						utils.c				\
-						check.c				\
-						sprites_settings.c)
-
+SRC = $(addprefix src/, main.c map_check_error.c map_config.c game_settings.c game_movements.c game_draw.c map_free.c utils.c check.c sprites_settings.c)
 
 OBJ = ${SRC:.c=.o}
 
@@ -38,7 +28,12 @@ ${NAME}: ${OBJ}
 	@make -C $(GET_NEXT_LINE_DIR)
 	@make -C $(FT_PRINTF_DIR)
 	@make -C $(LIBFT_DIR)
-	@make -C $(MLX_DIR)
+	@if [ ! -d "$(MLX_DIR)" ]; then \
+		git clone https://github.com/42Paris/minilibx-linux.git $(MLX_DIR); \
+	fi
+	@if [ ! -f "$(MLX_DIR)/libmlx.a" ]; then \
+		make -C $(MLX_DIR); \
+	fi
 	${CC} $(CFLAGS) $(OBJ) -o $(NAME) $(LIBS) $(MLXFLAGS)
 
 clean:
@@ -51,8 +46,10 @@ fclean: clean
 	@cd $(GET_NEXT_LINE_DIR) && $(MAKE) clean
 	@cd $(FT_PRINTF_DIR) && $(MAKE) clean
 	@cd $(LIBFT_DIR) && $(MAKE) clean
-	@cd $(MLX_DIR) && $(MAKE) clean
-	$(RM) mlx/libmlx_Linux.a libft/libft.a ft_printf/libftprintf.a gnl/libgnl.a
+	@if [ -d "$(MLX_DIR)" ]; then \
+		rm -rf $(MLX_DIR); \
+	fi
+	$(RM) mlx/libmlx.a libft/libft.a ft_printf/libftprintf.a gnl/libgnl.a
 
 re: fclean all
 

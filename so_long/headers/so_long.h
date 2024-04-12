@@ -6,19 +6,13 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 15:39:23 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/04/11 15:11:02 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/04/12 17:27:46 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 # define WINDOW_NAME "so_long"
-# define WALL 49  // '0'
-# define FLOOR 48 // '1'
-# define START 80 // 'P'
-# define EXIT 69 // 'E'
-# define COLLECT 67 // 'C'
-# define CHECKED 82 // 'R'
 # define BOOL
 # define TRUE 1
 # define FALSE 0
@@ -26,7 +20,7 @@
 #  define SIZE 50
 # endif
 
-# include "../mlx/mlx.h"
+# include "mlx.h"
 # include "libft.h"
 # include "get_next_line.h"
 # include "ft_printf.h"
@@ -63,7 +57,7 @@ void	set_param_game(t_vars*vars, int c, int i, int j);
 int		key_board(int keycode, t_vars*vars);
 
 void	check_map_components(t_vars *vars);
-int		check_wall(t_vars *vars);
+void	check_wall(t_vars *vars);
 void	check_map(t_vars*vars);
 void	final_check(t_vars*vars);
 void	map_solvable(t_vars*vars, t_pos start_pos);
@@ -88,5 +82,6 @@ int		move_screen_counter(t_vars *vars);
 int		ft_strcmp(char*s1, char*s2);
 int		ft_len_newline(char*str);
 void	print_error(char*str);
+void	handle_gnl_error(t_vars*vars, char*line, int fd);
 
 #endif
