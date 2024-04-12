@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 19:29:08 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/04/09 15:31:55 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/04/12 17:19:18 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,12 @@ void	print_error(char*str)
 	ft_printf("Error\n");
 	ft_printf("%s\n", str);
 	exit (1);
+}
+
+void	handle_gnl_error(t_vars*vars, char*line, int fd)
+{
+	free(line);
+	get_next_line(-1);
+	close(fd);
+	treat_map_error(vars, "Map not retangular");
 }

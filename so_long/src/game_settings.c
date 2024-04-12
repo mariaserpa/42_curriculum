@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 19:28:41 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/04/09 15:09:56 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/04/12 15:57:50 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,19 +42,19 @@ void	start_param_game(t_vars*vars, char*map_path)
 
 void	set_param_game(t_vars*vars, int c, int y, int x)
 {
-	if (c == START)
+	if (c == 'P')
 	{
 		vars->counts.qt_player++;
 		vars->player.pos_x = x;
 		vars->player.pos_y = y;
 	}
-	else if (c == EXIT)
+	else if (c == 'E')
 	{
 		vars->counts.qt_exit++;
 		vars->map.exit.pos_x = x;
 		vars->map.exit.pos_y = y;
 	}
-	else if (c == COLLECT)
+	else if (c == 'C')
 		vars->counts.qt_collectibles++;
 }
 

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   treat_error.c                                      :+:      :+:    :+:   */
+/*   map_free.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 15:23:16 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/04/06 15:24:19 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/04/12 15:20:09 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	treat_map_error(t_vars*vars, char*str)
 {
 	free_double_pointer(vars->map.map);
+	free_double_pointer(vars->map.map_copy);
 	mlx_destroy_display(vars->mlx);
 	free(vars->mlx);
 	print_error(str);

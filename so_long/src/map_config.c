@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 18:13:19 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/04/07 00:06:57 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/04/12 17:08:09 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	parse_map(t_vars*vars)
 		if (vars->map.display.pos_y == 1)
 			vars->map.display.pos_x = ft_len_newline(line);
 		if (ft_len_newline(line) != vars->map.display.pos_x)
-			treat_map_error(vars, "Map is not retangular");
+			handle_gnl_error(vars, line, fd);
 		free(line);
 		line = get_next_line(fd);
 	}
@@ -55,6 +55,7 @@ void	map_store(t_vars*vars)
 		if (!vars->map.map[i])
 		{
 			print_error("Empty map");
+			close(fd);
 			exit(1);
 		}
 		i++;
