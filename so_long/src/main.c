@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 16:28:30 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/04/12 14:59:40 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/04/16 13:39:53 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ int	main(int argc, char**argv)
 	parse_map(&vars);
 	validate_map(&vars);
 	path_validate(&vars);
+	load_xpm(&vars);
 	ft_printf("Hey @you, could you make Max happy and get all of his treats?\n");
 	vars.mlx_win = mlx_new_window(vars.mlx, vars.map.width * SIZE, \
 								vars.map.height * SIZE, WINDOW_NAME);
-	load_xpm(&vars);
 	render(&vars);
 	mlx_key_hook(vars.mlx_win, key_board, &vars);
 	mlx_hook(vars.mlx_win, 17, 1L << 0, close_window, &vars);

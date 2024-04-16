@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 19:28:41 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/04/12 15:57:50 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/04/16 13:06:20 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	start_param_game(t_vars*vars, char*map_path)
 	vars->mlx = NULL;
 	vars->mlx_win = NULL;
 	vars->img = (t_img){NULL, NULL, NULL, NULL, NULL, \
-						NULL, NULL, NULL, NULL, NULL};
+						NULL, NULL, NULL, NULL};
 	vars->map.map = NULL;
 	vars->map.map_copy = NULL;
 	vars->counts.qt_player = 0;

@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 15:39:23 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/04/12 17:27:46 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/04/16 13:53:44 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ void	load_xpm(t_vars*vars);
 void	load_img(t_vars*vars, int x, int y);
 void	img_control(t_vars*vars);
 int		move_screen_counter(t_vars *vars);
+void	destroy_images(t_vars*vars);
 
 int		ft_strcmp(char*s1, char*s2);
 int		ft_len_newline(char*str);

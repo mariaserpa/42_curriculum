@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 19:29:08 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/04/12 15:54:38 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/04/16 11:22:34 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,7 @@ void	check_exit(t_vars*vars)
 		vars->map.map[vars->player.pos_y - 1][vars->player.pos_x] == 'E' || \
 		vars->map.map[vars->player.pos_y][vars->player.pos_x + 1] == 'E' || \
 		vars->map.map[vars->player.pos_y][vars->player.pos_x - 1] == 'E'))
-	{
-		ft_printf("There still some treats left! Go get them!\n");
-	}
+		ft_printf("There are still some treats left! Go get them!\n");
 }
 
 void	check_collectibles(t_vars*vars)

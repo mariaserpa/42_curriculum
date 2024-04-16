@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 17:47:27 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/04/09 15:29:58 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/04/16 13:04:27 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ typedef struct s_img
 	char	*player_right;
 	char	*player_left;
 	char	*collectibles;
-	char	*enemy;
 }	t_img;
 
 typedef struct s_vars

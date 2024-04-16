@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 14:37:15 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/04/12 17:12:58 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/04/16 14:27:45 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,21 +47,20 @@ void	load_img(t_vars*vars, int x, int y)
 
 void	img_control(t_vars*vars)
 {
-	if (vars->img.background == NULL || vars->img.wall == NULL || \
-		vars->img.player_down == NULL || vars->img.player_up == NULL || \
-		vars->img.player_left == NULL || vars->img.player_right == NULL || \
-		vars->img.exit == NULL || vars->img.collectibles == NULL || \
-		vars->img.exit_open == NULL)
+	if (!vars->img.background || !vars->img.exit_open || !vars->img.player_down \
+		|| !vars->img.player_up || !vars->img.player_left || !vars->img.exit || \
+		!vars->img.player_right || !vars->img.collectibles || !vars->img.wall)
 	{
-		free(vars->img.background);
-		free(vars->img.wall);
-		free(vars->img.player_up);
-		free(vars->img.player_down);
-		free(vars->img.player_left);
-		free(vars->img.player_right);
-		free(vars->img.collectibles);
-		free(vars->img.exit);
-		free(vars->img.exit_open);
+		destroy_images(vars);
+		vars->img.wall = NULL;
+		vars->img.background = NULL;
+		vars->img.player_up = NULL;
+		vars->img.player_down = NULL;
+		vars->img.player_left = NULL;
+		vars->img.player_right = NULL;
+		vars->img.collectibles = NULL;
+		vars->img.exit = NULL;
+		vars->img.exit_open = NULL;
 		treat_map_error(vars, "Invalid image");
 	}
 }
@@ -79,4 +78,26 @@ int	move_screen_counter(t_vars*vars)
 	free_pointer(count_string);
 	free_pointer(print_string);
 	return (0);
+}
+
+void	destroy_images(t_vars*vars)
+{
+	if (vars->img.background)
+		mlx_destroy_image(vars->mlx, vars->img.background);
+	if (vars->img.collectibles)
+		mlx_destroy_image(vars->mlx, vars->img.collectibles);
+	if (vars->img.exit)
+		mlx_destroy_image(vars->mlx, vars->img.exit);
+	if (vars->img.exit_open)
+		mlx_destroy_image(vars->mlx, vars->img.exit_open);
+	if (vars->img.player_left)
+		mlx_destroy_image(vars->mlx, vars->img.player_left);
+	if (vars->img.player_right)
+		mlx_destroy_image(vars->mlx, vars->img.player_right);
+	if (vars->img.player_down)
+		mlx_destroy_image(vars->mlx, vars->img.player_down);
+	if (vars->img.player_up)
+		mlx_destroy_image(vars->mlx, vars->img.player_up);
+	if (vars->img.wall)
+		mlx_destroy_image(vars->mlx, vars->img.wall);
 }
