@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 14:37:15 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/04/16 14:27:45 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/04/17 14:41:26 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,23 +26,23 @@ void	load_xpm(t_vars*vars)
 void	load_img(t_vars*vars, int x, int y)
 {
 	vars->img.background = mlx_xpm_file_to_image(vars->mlx,
-			"./images/sprite_background.xpm", &x, &y);
+			"./textures/sprite_background.xpm", &x, &y);
 	vars->img.wall = mlx_xpm_file_to_image(vars->mlx,
-			"./images/sprite_wall.xpm", &x, &y);
+			"./textures/sprite_wall.xpm", &x, &y);
 	vars->img.player_up = mlx_xpm_file_to_image(vars->mlx,
-			"./images/sprite_player_up.xpm", &x, &y);
+			"./textures/sprite_player_up.xpm", &x, &y);
 	vars->img.player_down = mlx_xpm_file_to_image(vars->mlx,
-			"./images/sprite_player_down.xpm", &x, &y);
+			"./textures/sprite_player_down.xpm", &x, &y);
 	vars->img.player_right = mlx_xpm_file_to_image(vars->mlx,
-			"./images/sprite_player_right.xpm", &x, &y);
+			"./textures/sprite_player_right.xpm", &x, &y);
 	vars->img.player_left = mlx_xpm_file_to_image(vars->mlx,
-			"./images/sprite_player_left.xpm", &x, &y);
+			"./textures/sprite_player_left.xpm", &x, &y);
 	vars->img.collectibles = mlx_xpm_file_to_image(vars->mlx,
-			"./images/sprite_collectibles.xpm", &x, &y);
+			"./textures/sprite_collectibles.xpm", &x, &y);
 	vars->img.exit = mlx_xpm_file_to_image(vars->mlx,
-			"./images/sprite_exit.xpm", &x, &y);
+			"./textures/sprite_exit.xpm", &x, &y);
 	vars->img.exit_open = mlx_xpm_file_to_image(vars->mlx,
-			"./images/sprite_exit_open.xpm", &x, &y);
+			"./textures/sprite_exit_open.xpm", &x, &y);
 }
 
 void	img_control(t_vars*vars)
