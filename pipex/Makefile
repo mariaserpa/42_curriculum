@@ -9,13 +9,13 @@ MLX_DIR = ./mlx
 LIBS = $(LIBFT_DIR)/libft.a
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror 
+CFLAGS = -Wall -Wextra -Werror
 
 RM = rm -f
 ARNAME = ar rcs $(NAME)
 RANNAME = ranlib $(NAME)
 
-SRC = $(addprefix src/, main.c )
+SRC = $(addprefix src/, main.c exec_command.c process.c)
 
 OBJ = ${SRC:.c=.o}
 
