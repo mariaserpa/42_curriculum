@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 17:56:13 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/05/08 17:56:28 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/05/08 19:23:18 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	free_fake_argv(char**argv)
 void	free_stack(t_stack**stack)
 {
 	if (*stack == NULL)
-		return;
+		return ;
 	free_stack(&((*stack)->next));
 	free(*stack);
 	*stack = NULL;

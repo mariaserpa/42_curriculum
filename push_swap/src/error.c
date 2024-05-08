@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 17:56:54 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/05/08 17:57:08 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/05/08 19:22:47 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,19 @@ int	error_syntax(char*str)
 		if (!ft_isdigit(str[i]))
 			return (1);
 		i++;
+	}
+	return (0);
+}
+
+int	error_duplicates(t_stack*a, int n)
+{
+	if (!a)
+		return (0);
+	while (a)
+	{
+		if (a->value == n)
+			return (1);
+		a = a->next;
 	}
 	return (0);
 }
