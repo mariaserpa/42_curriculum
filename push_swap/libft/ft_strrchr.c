@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 14:02:41 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/04/04 22:55:09 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/05/16 18:03:27 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,22 +31,3 @@ char	*ft_strrchr(const char *s, int c)
 	}
 	return (0);
 }
-
-/*#include <stdio.h>
-
-int main() {
-	const char *str = "Hello, world!";
-	int target_char = 'o';
-	char *result = ft_strrchr(str, target_char);
-
-	if (result != 0)
-	{
-		printf("Found character '%c' at position: %ld\n", target_char, result - str);
-	}
-	else
-	{
-		printf("Character '%c' not found in the string.\n", target_char);
-	}
-
-	return (0);
-}*/

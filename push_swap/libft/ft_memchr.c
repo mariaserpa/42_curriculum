@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 14:02:23 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/04/04 22:55:09 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/05/16 18:02:56 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,23 +29,3 @@ void	*ft_memchr(const void*s, int c, size_t n)
 	}
 	return (0);
 }
-
-/*#include <stdio.h>
-
-int main() {
-	const char *str = "Hello, world!";
-	int target_char = 'o';
-	size_t	n = 7;
-	char *result = ft_memchr(str, target_char, n);
-
-	if (result != 0)
-	{
-		printf("Found character '%c' at position: %ld\n", target_char, result - str);
-	}
-	else
-	{
-		printf("Character '%c' not found in the string.\n", target_char);
-	}
-
-	return (0);
-}*/

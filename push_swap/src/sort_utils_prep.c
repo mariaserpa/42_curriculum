@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 14:49:53 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/05/16 15:35:28 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/05/16 17:58:19 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	find_target_a(t_stack*a, t_stack*b)
 {
 	t_stack	*current_node;
-	long	best_match;//suppose to be long?
+	long	best_match;
 
 	while (a)
 	{
@@ -27,7 +27,7 @@ static void	find_target_a(t_stack*a, t_stack*b)
 				&& current_node->value > best_match)
 			{
 				best_match = current_node->value;
-				a->target_node = current_node;//different
+				a->target_node = current_node;
 			}
 			current_node = current_node->next;
 		}

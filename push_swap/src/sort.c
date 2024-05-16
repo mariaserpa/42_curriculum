@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 16:06:48 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/05/16 15:55:45 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/05/16 17:58:52 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,16 +53,8 @@ void	big_sort(t_stack**a, t_stack**b)
 		prep_stack_a(*a, *b);
 		push_cheapest_to_b(a, b);
 	}
-	// print_stack(*a);
-	// printf("\nSTACK B\n");
-	// fflush(stdout);
-	// print_stack(*b);
 	if (!check_sort(*a))
 		sort_three(a);
-	// print_stack(*a);
-	// printf("\nSTACK B\n");
-	// fflush(stdout);
-	// print_stack(*b);
 	while (*b)
 	{
 		prep_stack_b(*a, *b);

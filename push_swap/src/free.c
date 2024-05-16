@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 17:56:13 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/05/08 19:23:18 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/05/16 17:56:40 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	free_fake_argv(char**argv)
 		free(argv[i]);
 		i++;
 	}
-	free(argv); //check
+	free(argv);
 }
 
 void	free_stack(t_stack**stack)

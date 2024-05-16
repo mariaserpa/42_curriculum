@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 12:52:21 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/05/16 15:56:05 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/05/16 17:57:53 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,15 @@ int	main(int argc, char**argv)
 	start_stack(&a, argv, flag);
 	if (!check_sort(a))
 	{
-		//printf("%d\n", stack_size(a));
 		if (stack_size(a) == 2)
 			sa(&a);
 		else if (stack_size(a) == 3)
 			sort_three(&a);
 		else
 			big_sort(&a, &b);
-		//print_stack(a);//deletar
 	}
 	free_stack(&a);
 }
-
 
 void	print_stack(t_stack *a)
 {
