@@ -6,10 +6,7 @@ LIBS = $(LIBFT_DIR)/libft.a
 
 CC = @cc
 CFLAGS = -Wall -Wextra -Werror
-
 RM = rm -f
-ARNAME = ar rcs $(NAME)
-RANNAME = ranlib $(NAME)
 LIBNAME	= libpush_swap.a
 
 SRC = $(addprefix src/, main.c				\
@@ -38,6 +35,9 @@ ${NAME}: ${OBJ}
 	@${CC} $(CFLAGS) $(OBJ) $(LIBS) -o $(NAME)
 	@echo "Done!"
 
+libpush_swap: ${OBJ}
+	@ar rcs ${LIBNAME} ${OBJ}
+
 clean:
 	@echo "Cleaning..."
 	@${RM} ${OBJ}
@@ -50,6 +50,7 @@ fclean: clean
 	@${RM} ${NAME}
 	@cd $(LIBFT_DIR) && $(MAKE) clean
 	@$(RM) libft/libft.a
+	@$(RM) libpush_swap.a
 	@echo "Done!"
 
 re: fclean all

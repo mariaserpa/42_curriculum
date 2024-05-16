@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 13:38:10 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/05/08 17:01:08 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/05/16 23:08:23 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 typedef struct s_list
 {
-	void			*content;
+	char			*content;
 	struct s_list	*next;
 }	t_list;
 
@@ -51,6 +51,7 @@ int			ft_toupper(int c);
 int			ft_lstsize(t_list*lst);
 int			ft_atoi(const char*str);
 int			ft_memcmp(const void*s1, const void*s2, size_t n);
+int			ft_strcmp(char*s1, char*s2);
 int			ft_strncmp(const char*s1, const char*s2, size_t n);
 
 long		ft_atol(const char*str);

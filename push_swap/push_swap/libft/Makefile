@@ -14,6 +14,7 @@ SRC =	$(addsuffix .c, ft_isalnum			\
 						ft_memmove			\
 						ft_strlcpy			\
 						ft_strlcat			\
+						ft_strcmp			\
 						ft_strncmp			\
 						ft_strchr			\
 						ft_strrchr			\

@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 12:52:21 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/05/16 17:57:53 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/05/16 20:02:17 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,21 +39,4 @@ int	main(int argc, char**argv)
 			big_sort(&a, &b);
 	}
 	free_stack(&a);
-}
-
-void	print_stack(t_stack *a)
-{
-	printf("Stack contents:\n");
-	while (a != NULL)
-	{
-		printf("Value of the node %d\n", a->value);
-		printf("Adress of the node %p\n", a);
-		printf("Adress of next node %p\n", a->next);
-		printf("Adress of prev node %p\n", a->prev);
-		printf("Index of node %d\n", a->index);
-		printf("Cost of push for node %d\n", a->push_cost);
-		printf("Is above median? %i\n", a->above_median);
-		printf("Is it the cheapest? %i\n", a->cheapest);
-		a = a->next;
-	}
 }
