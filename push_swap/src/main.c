@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 12:52:21 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/05/08 19:33:13 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/05/16 13:14:13 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,67 +15,42 @@
 int	main(int argc, char**argv)
 {
 	t_stack	*a;
-	//t_stack	*b;
+	t_stack	*b;
 	bool	flag;
 
 	a = NULL;
-	//b = NULL;
+	b = NULL;
 	flag = false;
 	if (argc == 1 || (argc == 2 && argv[1][0] == '\0'))
-		print_arg_error();
+		exit (1);
 	else if (argc == 2)
 	{
 		argv = ft_split_mod(argv[1], ' ');
 		flag = true;
 	}
 	start_stack(&a, argv, flag);
+	if (!check_sort(a))
+	{
+		//printf("%d\n", stack_size(a));
+		if (stack_size(a) == 2)
+			sa(&a);
+		else if (stack_size(a) == 3)
+			sort_three(&a);
+		else
+			big_sort(&a, &b);
+		//print_stack(a);//deletar
+	}
 	free_stack(&a);
 }
 
-void	start_stack(t_stack**a, char**argv, bool flag)
-{
-	int		i;
-	long	n;
 
-	i = 1;
-	while (argv[i])
+void	print_stack(t_stack *a)
+{
+	printf("Stack contents:\n");
+	while (a != NULL)
 	{
-		if (error_syntax(argv[i]))
-			print_error(a, argv, flag);
-		n = ft_atol(argv[i]);
-		if (n > INT_MAX || n < INT_MIN)
-			print_error(a, argv, flag);
-		if (error_duplicates(*a, (int)n))
-			print_error(a, argv, flag);
-		append_stack(a, (int)n);
-		i++;
+		printf("Value of the node %d,\n adress of the node %p,\n adress of next node %p,\n adress of prev node %p\n", a->value, a, a->next, a->prev);
+		a = a->next;
 	}
-	if (flag)
-		free_fake_argv(argv);
 }
 
-void	append_stack(t_stack**a, int n)
-{
-	t_stack	*new_node;
-	t_stack	*last_node;
-
-	if (a == NULL)
-		return ;
-	new_node = malloc(sizeof(t_stack));
-	if (!new_node)
-		return ;
-	new_node->value = n;
-	new_node->next = NULL;
-	if (*a == NULL)
-	{
-		*a = new_node;
-		new_node->prev = NULL;
-	}
-	else
-	{
-		last_node = *a;
-		while (last_node->next)
-			last_node = last_node->next;
-		last_node->next = new_node;
-	}
-}

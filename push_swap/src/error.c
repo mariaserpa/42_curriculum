@@ -6,17 +6,11 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 17:56:54 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/05/08 19:22:47 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/05/16 11:17:11 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
-
-void	print_arg_error(void)
-{
-	write(1, "Error\n", 6);
-	exit (1);
-}
 
 void	print_error(t_stack**a, char**argv, bool flag)
 {

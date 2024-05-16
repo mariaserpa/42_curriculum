@@ -1,0 +1,133 @@
+
+long    ft_atol(const char*str)
+{
+    int        i;
+    int        signal;
+    long    number;
+
+    i = 0;
+    signal = 1;
+    number = 0;
+    while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
+        i++;
+    if (str[i] == '-' || str[i] == '+')
+    {
+        if (str[i] == '-')
+            signal = -1;
+        i++;
+    }
+    while (str[i] >= 48 && str[i] <= 57 && str[i])
+    {
+        number = number * 10;
+        number += str[i] - 48;
+        i++;
+    }
+    return (signal * number);
+}
+
+typedef struct s_stack
+{
+    int        value;
+    struct s_stack    *next;
+    struct s_stack    *prev;
+}    t_stack;
+
+
+void    print_error(t_stack**a, char**argv, bool flag)
+{
+    free_stack(a);
+    if (flag)
+        free_fake_argv(argv);
+    write(1, "Error\n", 6);
+    exit (1);
+}
+
+void    free_fake_argv(char**argv)
+{
+    int    i;
+
+    i = 0;
+    if (argv == NULL || argv[0] == NULL)
+        return ;
+    while (argv[i])
+    {
+        free(argv[i]);
+        i++;
+    }
+    free(argv); //check
+}
+
+void    free_stack(t_stack**stack)
+{
+    if (*stack == NULL)
+        return ;
+    free_stack(&((*stack)->next));
+    free(*stack);
+    *stack = NULL;
+}
+
+
+void    start_stack(t_stack**a, char**argv, bool flag)
+{
+    int        i;
+    long    n;
+
+    i = 1;
+    while (argv[i])
+    {
+      n = ft_atol(argv[i]);
+      append_stack(a, (int)n);
+      i++;
+    }
+    if (flag)
+        free_fake_argv(argv);
+}
+
+t_stack    *find_last_node(t_stack *head)
+{
+    if (NULL == head)
+        return (NULL);
+    while (head->next)
+        head = head->next;
+    return (head);
+}
+
+
+void    append_stack(t_stack**a, int n)
+{
+    t_stack    *new_node;
+    t_stack    *last_node;
+
+    if (a == NULL)
+        return ;
+    new_node = malloc(sizeof(t_stack));
+    if (!new_node)
+        return ;
+    new_node->next = NULL;
+    new_node->value = n;
+    if (*a == NULL)
+    {
+        *a = new_node;
+        new_node->prev = NULL;
+    }
+    else
+    {
+        last_node = find_last_node(*a);
+        last_node->next = new_node;
+        new_node->prev = last_node;
+    }
+}
+
+int    main()
+{
+    t_stack    *a;
+    //t_stack    *b;
+    bool    flag;
+
+    a = NULL;
+    //b = NULL;
+    flag = true;
+    char *argv[5] = {argv[0]='\0', argv[1] = "42", argv[2] = "1332", argv[3] = "-21", argv[4] = NULL};
+    start_stack(&a, argv, flag);
+    free_stack(&a);
+}

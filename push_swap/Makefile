@@ -16,9 +16,18 @@ ARNAME = ar rcs $(NAME)
 RANNAME = ranlib $(NAME)
 LIBNAME	= libpush_swap.a
 
-SRC = $(addprefix src/, main.c	\
-						error.c \
-						free.c	)
+SRC = $(addprefix src/, main.c				\
+						error.c 			\
+						free.c				\
+						sort.c				\
+						sort_utils_check.c	\
+						sort_utils_prep.c	\
+						sort_utils_push.c	\
+						stack.c				\
+						command_swap.c		\
+						command_push.c		\
+						command_reverse.c	\
+						command_rotate.c	)
 
 OBJ = ${SRC:.c=.o}
 
@@ -36,7 +45,7 @@ ${NAME}: ${OBJ}
 clean:
 	${RM} ${OBJ}
 	$(RM) main/*.o
-	$(RM) libft/*.o ft_printf/*.o gnl/*.o
+	$(RM) libft/*.o
 #	$(RM) ft_printf/*.o gnl/*.o
 
 fclean: clean
