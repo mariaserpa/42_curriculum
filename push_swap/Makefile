@@ -4,7 +4,7 @@ LIBFT_DIR = ./libft
 
 LIBS = $(LIBFT_DIR)/libft.a
 
-CC = cc
+CC = @cc
 CFLAGS = -Wall -Wextra -Werror
 
 RM = rm -f
@@ -33,18 +33,24 @@ OBJ = ${SRC:.c=.o}
 all: ${NAME}
 
 ${NAME}: ${OBJ}
+	@echo "Compiling..." 
 	@make bonus -C $(LIBFT_DIR)
-	${CC} $(CFLAGS) $(OBJ) -o $(NAME) $(LIBS)
+	@${CC} $(CFLAGS) $(OBJ) $(LIBS) -o $(NAME)
+	@echo "Done!"
 
 clean:
-	${RM} ${OBJ}
-	$(RM) main/*.o
-	$(RM) libft/*.o
+	@echo "Cleaning..."
+	@${RM} ${OBJ}
+	@$(RM) main/*.o
+	@$(RM) libft/*.o
+	@echo "Done!"
 
 fclean: clean
-	${RM} ${NAME}
+	@echo "Full cleaning..."
+	@${RM} ${NAME}
 	@cd $(LIBFT_DIR) && $(MAKE) clean
-	$(RM) libft/libft.a
+	@$(RM) libft/libft.a
+	@echo "Done!"
 
 re: fclean all
 

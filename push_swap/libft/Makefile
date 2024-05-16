@@ -67,20 +67,20 @@ OBJS_ALL = $(OBJS) $(BONUS_OBJS)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(ARNAME) $(OBJS)
-	$(RANNAME)
+	@$(ARNAME) $(OBJS)
+	@$(RANNAME)
 
 %.o: %.c
-	$(CC) $(CCFLAGS) $(CPPFLAGS) -o $@ -c $<
+	@$(CC) $(CCFLAGS) $(CPPFLAGS) -o $@ -c $<
 
 clean:
-	$(RM) $(OBJS_ALL)
+	@$(RM) $(OBJS_ALL)
 
 fclean: clean
-	$(RM) $(NAME)
+	@$(RM) $(NAME)
 
 re: fclean all
 
 bonus: $(OBJS_ALL)
-	$(ARNAME) $(OBJS_ALL)
-	$(RANNAME)
+	@$(ARNAME) $(OBJS_ALL)
+	@$(RANNAME)
