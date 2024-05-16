@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 14:49:53 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/05/15 18:51:41 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/05/16 15:35:28 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,23 @@
 static void	find_target_a(t_stack*a, t_stack*b)
 {
 	t_stack	*current_node;
-	int		best_match;//suppose to be long?
+	long	best_match;//suppose to be long?
 
 	while (a)
 	{
-		best_match = INT_MIN;
+		best_match = LONG_MIN;
 		current_node = b;
 		while (current_node)
 		{
 			if (current_node->value < a->value
-				&& current_node->value >= best_match)
+				&& current_node->value > best_match)
 			{
 				best_match = current_node->value;
 				a->target_node = current_node;//different
 			}
 			current_node = current_node->next;
 		}
-		if (best_match == INT_MIN)
+		if (best_match == LONG_MIN)
 			a->target_node = find_max(b);
 		a = a->next;
 	}
@@ -75,11 +75,11 @@ void	prep_stack_a(t_stack*a, t_stack*b)
 static void	find_target_b(t_stack*a, t_stack*b)
 {
 	t_stack	*current_node;
-	int		best_match;
+	long	best_match;
 
 	while (b)
 	{
-		best_match = INT_MAX;
+		best_match = LONG_MAX;
 		current_node = a;
 		while (current_node)
 		{
@@ -91,7 +91,7 @@ static void	find_target_b(t_stack*a, t_stack*b)
 			}
 			current_node = current_node->next;
 		}
-		if (best_match == INT_MAX)
+		if (best_match == LONG_MAX)
 			b->target_node = find_min(a);
 		b = b->next;
 	}

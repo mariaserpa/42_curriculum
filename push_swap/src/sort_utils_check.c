@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 14:46:57 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/05/15 13:23:04 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/05/16 14:52:43 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,12 @@ void	check_index(t_stack*stack) //put median?
 
 void	set_cheapest(t_stack*stack)
 {
-	int		cheapest_value;
+	long	cheapest_value;
 	t_stack	*cheapest_node;
 
 	if (!stack)
 		return ;
-	cheapest_value = INT_MAX;
+	cheapest_value = LONG_MAX;
 	cheapest_node = NULL;
 	while (stack)
 	{
@@ -57,12 +57,12 @@ void	set_cheapest(t_stack*stack)
 
 t_stack	*find_max(t_stack*stack)
 {
-	int		max;
+	long	max;
 	t_stack	*max_node;
 
 	if (!stack)
 		return (NULL);
-	max = INT_MIN;
+	max = LONG_MIN;
 	while (stack)
 	{
 		if (stack->value > max)
@@ -77,12 +77,12 @@ t_stack	*find_max(t_stack*stack)
 
 t_stack	*find_min(t_stack*stack)
 {
-	int		min;
+	long	min;
 	t_stack	*min_node;
 
 	if (!stack)
 		return (NULL);
-	min = INT_MAX;
+	min = LONG_MAX;
 	while (stack)
 	{
 		if (stack->value < min)

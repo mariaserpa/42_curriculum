@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 15:57:25 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/05/16 13:14:23 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/05/16 15:32:42 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ void	start_stack(t_stack**a, char**argv, bool flag)
 	}
 	if (flag)
 		free_fake_argv(argv);
-	//print_stack(*a);//retirar
 }
 
 int	stack_size(t_stack*lst)
