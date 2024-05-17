@@ -30,7 +30,7 @@ OBJ = ${SRC:.c=.o}
 all: ${NAME}
 
 ${NAME}: ${OBJ}
-	@echo "Compiling..." 
+	@echo "Compiling..."
 	@make bonus -C $(LIBFT_DIR)
 	@${CC} $(CFLAGS) $(OBJ) $(LIBS) -o $(NAME)
 	@echo "Done!"
@@ -54,5 +54,8 @@ fclean: clean
 	@echo "Done!"
 
 re: fclean all
+
+norminette:
+	norminette ${SRC} ${headers} ${libft}
 
 .PHONY: clean fclean re all

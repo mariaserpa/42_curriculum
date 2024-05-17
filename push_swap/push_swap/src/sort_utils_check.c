@@ -6,13 +6,13 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 14:46:57 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/05/16 14:52:43 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/05/17 14:29:08 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
 
-void	check_index(t_stack*stack) //put median?
+void	check_index(t_stack*stack)
 {
 	int	i;
 	int	median;
