@@ -6,13 +6,13 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 13:25:10 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/05/16 17:57:08 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/05/17 11:34:57 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
 
-static void	rotate(t_stack**stack)
+void	rotate(t_stack**stack)
 {
 	t_stack	*first_node;
 	t_stack	*last_node;

@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 13:19:55 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/05/16 11:17:22 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/05/17 11:35:10 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,21 +25,25 @@
 void	print_stack(t_stack *a); //retirar
 
 /*command_swap*/
+void	swap(t_stack**start);
 void	sa(t_stack**a);
 void	sb(t_stack**b);
 void	ss(t_stack**a, t_stack**b);
 
 /*command_rotate*/
+void	rotate(t_stack**stack);
 void	ra(t_stack**a);
 void	rb(t_stack**b);
 void	rr(t_stack**a, t_stack**b);
 
 /*command_reverse*/
+void	reverse_rotate(t_stack**stack);
 void	rra(t_stack**a);
 void	rrb(t_stack**b);
 void	rrr(t_stack**a, t_stack**b);
 
 /*command_push*/
+void	push(t_stack**dest, t_stack**src);
 void	pa(t_stack**a, t_stack**b);
 void	pb(t_stack**b, t_stack**a);
 

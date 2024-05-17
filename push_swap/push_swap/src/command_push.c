@@ -6,13 +6,13 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 13:24:43 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/05/15 19:00:30 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/05/17 11:34:23 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
 
-static void	push(t_stack**dest, t_stack**src)
+void	push(t_stack**dest, t_stack**src)
 {
 	t_stack	*first_node;
 

@@ -9,7 +9,7 @@ CC = @cc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -rf
 
-SRC = main_checker.c get_next_line.c get_next_line_utils.c
+SRC = main_checker.c checks.c utils.c get_next_line.c get_next_line_utils.c
 
 OBJ = ${SRC:.c=.o}
 
@@ -24,19 +24,15 @@ ${NAME}: ${OBJ}
 	@echo "Done!"
 
 clean:
-	@echo "Cleaning..."
 	@${RM} ${OBJ}
 	@$(RM) main/*.o
 	@$(RM) libft/*.o
 	@$(RM) push_swap/*.o
-	@echo "Done!"
 
 fclean: clean
-	@echo "Full cleaning..."
 	@${RM} ${NAME}
 	@$(MAKE) -C $(LIBFT_DIR) fclean
 	@$(MAKE) -C $(PUSH_SWAP_DIR) fclean
-	@echo "Done!"
 
 re: fclean all
 

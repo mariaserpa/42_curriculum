@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 19:34:34 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/05/16 23:35:27 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/05/17 11:31:28 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,11 @@ void	dealloc(t_list**lst, t_list*new_node, char*buffer);
 
 void	start_second_stack(t_stack**b, t_stack**a);
 void	end_stacks(t_stack**a, t_stack**b, bool flag);
-void	run_commands(char*commands, t_stack*a, t_stack*b);
+void	run_commands(char*commands, t_stack**a, t_stack**b);
+
+void	check_swap(char*commands, t_stack**a, t_stack**b);
+void	check_rotate(char*commands, t_stack**a, t_stack**b);
+void	check_reverse_rotate(char*commands, t_stack**a, t_stack**b);
 void	check_result(t_stack*a, t_stack*b);
 
 
