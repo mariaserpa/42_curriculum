@@ -17,7 +17,7 @@ OBJ = ${SRC:.c=.o}
 all: ${NAME}
 
 ${NAME}: ${OBJ}
-	@echo "Compiling..." 
+	@echo "Compiling..."
 	@make bonus -C $(LIBFT_DIR)
 	@make -C $(PUSH_SWAP_DIR) libpush_swap
 	@${CC} $(CFLAGS) $(OBJ) $(LIBS) -o $(NAME)
@@ -35,5 +35,8 @@ fclean: clean
 	@$(MAKE) -C $(PUSH_SWAP_DIR) fclean
 
 re: fclean all
+
+norminette:
+	norminette
 
 .PHONY: clean fclean re all
