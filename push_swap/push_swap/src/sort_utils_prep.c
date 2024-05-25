@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 14:49:53 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/05/16 17:58:19 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/05/22 13:56:20 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static void	cost_analysis(t_stack*a, t_stack*b)
 		a->push_cost = a->index;
 		if (!a->above_median)
 			a->push_cost = len_a - a->index;
-		if (a->above_median && a->target_node->above_median
+		else if (a->above_median && a->target_node->above_median
 			&& a->index < a->target_node->index)
 			a->push_cost = a->target_node->index;
 		else if (!a->above_median && !a->target_node->above_median
