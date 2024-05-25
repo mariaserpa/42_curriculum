@@ -6,12 +6,11 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 14:29:14 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/05/16 20:19:31 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/05/25 19:21:42 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
-#include "../push_swap/headers/libft.h"
 
 void	refine_list(t_list**lst)
 {

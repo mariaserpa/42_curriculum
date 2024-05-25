@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 19:34:34 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/05/17 14:28:19 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/05/25 19:31:12 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "../push_swap/headers/push_swap.h"
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 10
+#  define BUFFER_SIZE 100
 # endif
 
 # include <stdlib.h>
@@ -24,7 +24,6 @@
 # include <fcntl.h>
 
 /*utils*/
-void	start_second_stack(t_stack**b, t_stack**a);
 void	end_stacks(t_stack**a, t_stack**b, bool flag);
 void	run_commands(char*commands, t_stack**a, t_stack**b);
 

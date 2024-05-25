@@ -85,3 +85,5 @@ re: fclean all
 bonus: $(OBJS_ALL)
 	@$(ARNAME) $(OBJS_ALL)
 	@$(RANNAME)
+
+.PHONY: all clean fclean re bonus

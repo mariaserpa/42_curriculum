@@ -3,7 +3,7 @@ NAME = checker
 LIBFT_DIR = ../push_swap/libft
 PUSH_SWAP_DIR = ../push_swap
 
-LIBS = -L$(LIBFT_DIR) -lft -L$(PUSH_SWAP_DIR) -lpush_swap
+LIBS = -L$(PUSH_SWAP_DIR) -lpush_swap -L$(LIBFT_DIR) -lft
 
 CC = @cc
 CFLAGS = -Wall -Wextra -Werror

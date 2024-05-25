@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 11:38:28 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/05/17 11:39:12 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/05/25 19:31:03 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,4 @@ void	end_stacks(t_stack**a, t_stack**b, bool flag)
 		free_stack(b);
 		exit (0);
 	}
-}
-
-void	start_second_stack(t_stack**b, t_stack**a)
-{
-	b = malloc(sizeof(t_stack));
-	if (!b)
-	{
-		end_stacks(a, b, true);
-	}
-	b = NULL;
 }

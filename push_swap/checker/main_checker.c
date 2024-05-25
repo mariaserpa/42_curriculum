@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 18:42:37 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/05/17 11:39:19 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/05/25 19:31:38 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	main(int argc, char**argv)
 	char	*commands;
 
 	a = NULL;
+	b = NULL;
 	flag = false;
 	if (argc == 1 || (argc == 2 && argv[1][0] == '\0'))
 		exit (1);
@@ -29,7 +30,6 @@ int	main(int argc, char**argv)
 		flag = true;
 	}
 	start_stack(&a, argv, flag);
-	start_second_stack(&b, &a);
 	commands = get_next_line(STDIN_FILENO);
 	while (commands)
 	{
