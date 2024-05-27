@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/13 14:51:15 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/05/22 15:34:03 by mrabelo-         ###   ########.fr       */
+/*   Created: 2024/05/22 15:35:16 by mrabelo-          #+#    #+#             */
+/*   Updated: 2024/05/26 11:20:20 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,11 @@
 
 int	main(int argc, char**argv, char**envp)
 {
-	int		fd[2];
-	pid_t	id_1;
-
-	if (argc != 5)
+	if (argc < 5 || (ft_strncmp(argv[1], "here_doc", 8) == 0 && argc < 6))
 		print_error("Error: Invalid number of arguments\n");
+	else if (ft_strncmp(argv[1], "here_doc", 8) == 0 && argc >= 6)
+		here_doc_case(argc, argv, envp);
 	else
-	{
-		if (pipe(fd) < 0)
-			print_error("Error: Problem ocurred with pipe\n");
-		id_1 = fork();
-		if (id_1 < 0)
-			print_error("Error: Problem occur while forking\n");
-		if (id_1 == 0)
-			child_process(fd, argv, envp);
-		else
-		{
-			waitpid(id_1, NULL, 0);
-			parent_process(fd, argv, envp);
-		}
-	}
+		commands_only_case(argc, argv, envp);
 	return (0);
 }

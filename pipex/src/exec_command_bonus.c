@@ -1,38 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   exec_command_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/13 14:51:15 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/05/22 15:34:03 by mrabelo-         ###   ########.fr       */
+/*   Created: 2024/05/26 00:54:19 by mrabelo-          #+#    #+#             */
+/*   Updated: 2024/05/27 12:09:49 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/pipex.h"
 
-int	main(int argc, char**argv, char**envp)
+void	processing(int argc, char **argv, char **envp, int output)
 {
 	int		fd[2];
-	pid_t	id_1;
+	int		i;
+	pid_t	id_f;
 
-	if (argc != 5)
-		print_error("Error: Invalid number of arguments\n");
-	else
+	i = 2;
+	if (ft_strncmp(argv[1], "here_doc", 8) == 0)
+		i = 3;
+	while (i++ < argc - 2)
 	{
 		if (pipe(fd) < 0)
 			print_error("Error: Problem ocurred with pipe\n");
-		id_1 = fork();
-		if (id_1 < 0)
+		id_f = fork();
+		if (id_f < 0)
 			print_error("Error: Problem occur while forking\n");
-		if (id_1 == 0)
-			child_process(fd, argv, envp);
+		if (id_f == 0)
+			simpler_child_process(fd, argv[i], envp);
 		else
-		{
-			waitpid(id_1, NULL, 0);
-			parent_process(fd, argv, envp);
-		}
+			waitpid(id_f, NULL, 0);
+		close(fd[1]);
+		dup2(fd[0], STDIN_FILENO);
+		close(fd[0]);
 	}
-	return (0);
+	dup2(output, STDOUT_FILENO);
+	close(output);
+	execute_command(argv[argc - 2], envp);
+}
+
+void	simpler_child_process(int*fd, char*argv, char**envp)
+{
+	close(fd[0]);
+	dup2(fd[1], STDOUT_FILENO);
+	close(fd[1]);
+	execute_command(argv, envp);
 }

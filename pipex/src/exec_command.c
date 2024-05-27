@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   exec_command.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/26 11:11:31 by mrabelo-          #+#    #+#             */
+/*   Updated: 2024/05/27 10:28:41 by mrabelo-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../headers/pipex.h"
 
@@ -22,7 +33,7 @@ void	execute_command(char*argv, char**envp)
 		exit (127);
 	}
 	if (execve(cmd_path, cmd, envp) < 0)
-		print_error("Error executing command\n");
+		print_error("Error: Not possible to execute command\n");
 }
 
 char	*get_cmd_path(char*cmd, char**envp)

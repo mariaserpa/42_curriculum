@@ -1,49 +1,68 @@
+# Executable names
 NAME = pipex
+NAME_BONUS = pipex_bonus
 
-#GET_NEXT_LINE_DIR = ./get_next_line
-#FT_PRINTF_DIR = ./ft_printf
+# Directories
+GET_NEXT_LINE_DIR = ./get_next_line
 LIBFT_DIR = ./libft
-MLX_DIR = ./mlx
+HEADERS_DIR = ./headers
 
-#LIBS = ${GET_NEXT_LINE_DIR}/libgnl.a $(FT_PRINTF_DIR)/libftprintf.a $(LIBFT_DIR)/libft.a
-LIBS = $(LIBFT_DIR)/libft.a
+# Libraries
+LIBS = ${GET_NEXT_LINE_DIR}/libgnl.a $(LIBFT_DIR)/libft.a
 
+# Compiler and flags
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
+INCLUDES = -I$(HEADERS_DIR) -I$(LIBFT_DIR) -I$(GET_NEXT_LINE_DIR)
 
+# Remove command
 RM = rm -f
-ARNAME = ar rcs $(NAME)
-RANNAME = ranlib $(NAME)
 
+# Source files
 SRC = $(addprefix src/, main.c exec_command.c process.c)
+SRC_BONUS = $(addprefix src/, main_bonus.c cases_bonus.c exec_command_bonus.c exec_command.c)
 
+# Object files
 OBJ = ${SRC:.c=.o}
+OBJ_BONUS = ${SRC_BONUS:.c=.o}
 
+# Compilation rule for .c to .o
 %.o: %.c
-	@$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
+# Default target
 all: ${NAME}
 
+# Linking mandatory target
 ${NAME}: ${OBJ}
-#	@make -C $(GET_NEXT_LINE_DIR)
-#	@make -C $(FT_PRINTF_DIR)
 	@make -C $(LIBFT_DIR)
-	${CC} $(CFLAGS) $(OBJ) -o $(NAME) $(LIBS)
+	@$(CC) $(CFLAGS) $(OBJ) $(LIBFT_DIR)/libft.a -o $(NAME)
 
+# Linking bonus target
+bonus: ${NAME_BONUS}
+
+${NAME_BONUS}: ${OBJ_BONUS}
+	@make -C $(GET_NEXT_LINE_DIR)
+	@make -C $(LIBFT_DIR)
+	@$(CC) $(CFLAGS) $(OBJ_BONUS) $(LIBS) -o $(NAME_BONUS)
+
+# Clean object files
 clean:
-	${RM} ${OBJ}
-	$(RM) main/*.o
-	$(RM) libft/*.o ft_printf/*.o gnl/*.o
-#	$(RM) ft_printf/*.o gnl/*.o
+	@${RM} ${OBJ} ${OBJ_BONUS}
+	@make -C $(LIBFT_DIR) clean
+	@make -C $(GET_NEXT_LINE_DIR) clean
 
+# Full clean including executables and libraries
 fclean: clean
-	${RM} ${NAME}
-#	@cd $(GET_NEXT_LINE_DIR) && $(MAKE) clean
-#	@cd $(FT_PRINTF_DIR) && $(MAKE) clean
-	@cd $(LIBFT_DIR) && $(MAKE) clean
-	$(RM) libft/libft.a
-#	$(RM) ft_printf/libftprintf.a gnl/libgnl.a
+	@${RM} ${NAME} ${NAME_BONUS}
+	@make -C $(LIBFT_DIR) fclean
+	@make -C $(GET_NEXT_LINE_DIR) fclean
 
+# Rebuild everything
 re: fclean all
 
-.PHONY: clean fclean re all
+# Rebuild bonus
+re_bonus: fclean bonus
+
+# Phony targets
+.PHONY: clean fclean re all re_bonus bonus
