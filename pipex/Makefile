@@ -20,7 +20,7 @@ RM = rm -f
 
 # Source files
 SRC = $(addprefix src/, main.c exec_command.c process.c)
-SRC_BONUS = $(addprefix src/, main_bonus.c cases_bonus.c exec_command_bonus.c exec_command.c)
+SRC_BONUS = bonus/main_bonus.c bonus/cases_bonus.c bonus/exec_command_bonus.c src/exec_command.c
 
 # Object files
 OBJ = ${SRC:.c=.o}
