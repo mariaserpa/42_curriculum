@@ -1,14 +1,9 @@
-
-
-
-
-
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include <sys/wait.h>
-# include <sys/types.h>
-# include <fcntl.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <sys/wait.h>
+#include <sys/types.h>
+#include <fcntl.h>
 
 int	get_next_line(char **line);
 int open_file(char *filename, int flags);
@@ -86,8 +81,6 @@ char	*ft_strjoin(char const*s1, char const*s2)
 	dest[j] = '\0';
 	return (dest);
 }
-
-
 
 int	ft_strncmp(const char*s1, const char*s2, size_t n)
 {
@@ -189,9 +182,6 @@ char	**ft_split(char const*s, char c)
 	return (dest);
 }
 
-
-
-
 int main(int argc, char **argv, char **envp) {
     if (argc < 5) {
         print_error("Error: Invalid number of arguments\n");
@@ -209,7 +199,7 @@ void handle_here_doc(int argc, char **argv, char **envp) {
 
     if (pipe(fd) < 0)
         print_error("Error: Problem occurred with pipe\n");
-    
+
     if (fork() == 0)
         here_doc_child(fd, argv[2]);
     else {
@@ -224,13 +214,12 @@ void here_doc_child(int *fd, char *limiter) {
     char *line;
     close(fd[0]);
     while (get_next_line(&line) > 0) {
-        if (ft_strncmp(line, limiter, ft_strlen(limiter)) == 0) {
+        if (ft_strncmp(line, limiter, ft_strlen(limiter)) == 0 && ft_strlen(line) == ft_strlen(limiter) + 1) { // Adjusted to check the length
             free(line);
             break;
         }
         write(fd[1], line, ft_strlen(line));
-        //write(fd[1], "\n", 1);
-        //free(line);
+        free(line); // Freed here to avoid double free
     }
     close(fd[1]);
     exit(0);
@@ -285,16 +274,17 @@ void execute_command(char *argv, char **envp) {
     char *cmd_path = get_cmd_path(cmd[0], envp);
     if (!cmd_path)
         command_error(cmd);
-    
+
     if (execve(cmd_path, cmd, envp) < 0)
         print_error("Error: Not possible to execute command\n");
+
+    // Free memory if execve fails
+    free(cmd_path);
+    free_double_pointer(cmd);
 }
 
 void command_error(char **cmd) {
-    int i = 0;
-    while (cmd[i])
-        free(cmd[i++]);
-    free(cmd);
+    free_double_pointer(cmd);
     perror("Command");
     exit(127);
 }
@@ -368,7 +358,5 @@ int	get_next_line(char **line)
 	buffer[i] = '\n';
 	buffer[++i] = '\0';
 	*line = buffer;
-	free(buffer);
 	return (r);
 }
-

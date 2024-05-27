@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 14:51:50 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/05/26 11:22:14 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/05/27 16:37:54 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ void	get_all_file(int *fd, char *limiter);
 void	commands_only_case(int argc, char**argv, char**envp);
 void	processing(int argc, char **argv, char **envp, int output);
 void	simpler_child_process(int *fd, char*argv, char**envp);
+void	close_fd(int*fd);
 
 #endif
