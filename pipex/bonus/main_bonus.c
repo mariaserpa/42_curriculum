@@ -6,11 +6,11 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 15:35:16 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/05/26 11:20:20 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/05/28 17:12:56 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/pipex.h"
+#include "../headers/pipex_bonus.h"
 
 int	main(int argc, char**argv, char**envp)
 {

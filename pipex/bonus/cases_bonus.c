@@ -6,11 +6,11 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 00:51:38 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/05/27 16:39:59 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/05/28 17:12:39 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/pipex.h"
+#include "../headers/pipex_bonus.h"
 
 void	here_doc_case(int argc, char**argv, char**envp)
 {

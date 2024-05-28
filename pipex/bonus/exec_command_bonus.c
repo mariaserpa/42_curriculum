@@ -6,11 +6,11 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 00:54:19 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/05/27 17:17:51 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/05/28 17:12:51 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/pipex.h"
+#include "../headers/pipex_bonus.h"
 
 void	processing(int argc, char**argv, char**envp, int output)
 {
