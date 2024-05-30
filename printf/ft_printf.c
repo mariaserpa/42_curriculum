@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 16:09:28 by mrabelo-          #+#    #+#             */
-/*   Updated: 2023/12/12 19:13:30 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/05/30 17:05:33 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ int	ft_printf(const char*input, ...)
 	int		len;
 	va_list	args;
 
+	if (!input)
+		return (-1);
 	va_start(args, input);
 	i = 0;
 	len = 0;
@@ -64,27 +66,3 @@ int	ft_printf(const char*input, ...)
 	va_end(args);
 	return (len);
 }
-
-/*#include <stdio.h>
-int main() {
-    int num = 42;
-    char *str = "Hello, world!";
-    void *ptr = &num;
-
-    ft_printf("Printing a character: %c", 'A');
-	printf("\n");
-    ft_printf("Printing a string: %s", str);
-	printf("\n");
-    ft_printf("Printing a decimal number: %d", num);
-	printf("\n");
-    ft_printf("Printing a pointer: %p", ptr);
-	printf("\n");
-    ft_printf("Printing an unsigned decimal number: %u", 12345);
-	printf("\n");
-    ft_printf("Printing a hexadecimal number: %x", 255);
-	printf("\n");
-	ft_printf(" %c %c %c ", '0', 0, '1');
-	printf("\n");
-	printf(" %c %c %c ", '0', 0, '1');
-    return (0);
-}*/
