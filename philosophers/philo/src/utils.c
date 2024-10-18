@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 17:15:59 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/10/17 14:13:36 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/10/18 15:03:55 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,14 @@ long	ft_custom_atol(const char*str)
 	if (number > INT_MAX)
 		return (-1);
 	return (number);
+}
+
+long	time_in_millisec(void)
+{
+	struct timeval	t;
+
+	gettimeofday(&t, NULL);
+	return ((long)(t.tv_sec * 1000) + (long)(t.tv_usec / 1000));
 }
 
 

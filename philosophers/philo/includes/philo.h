@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 16:30:56 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/10/17 17:29:33 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/10/18 17:23:41 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,11 @@ typedef struct s_philo
 	int				time_to_eat;
 	int				time_to_sleep;
 	int				qt_meals;
-	pthread_mutex_t	*right;
-	pthread_mutex_t	*left;
+	long			t_lastmeal;
+	pthread_t		td_id;
+	pthread_mutex_t	*right_fork;
+	pthread_mutex_t	*left_fork;
+	struct s_data	*data;
 }	t_philo;
 
 typedef struct s_data
@@ -42,7 +45,8 @@ typedef struct s_data
 	int				time_to_eat;
 	int				time_to_sleep;
 	int				num_meals;
-	int				start;
+	int				life_status;
+	long			t_start;
 	pthread_mutex_t	*forks;
 	t_philo			*philo;
 }	t_data;
@@ -52,6 +56,7 @@ void	arg_validation(int argc, char *argv[]);
 void	pe_exit(t_data *data, char *msg, int code);
 
 long	ft_custom_atol(const char*str);
+long	time_in_millisec(void);
 
 void	pe_exit(t_data *data, char *msg, int code);
 
