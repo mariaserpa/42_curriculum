@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 16:30:56 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/10/21 00:02:17 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/10/21 14:55:38 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ typedef struct s_data
 	pthread_mutex_t	print_lock;
 	t_philo			*philo;
 }	t_data;
-
 
 void	arg_validation(int argc, char *argv[]);
 

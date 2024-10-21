@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 14:56:13 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/10/20 17:38:02 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/10/21 14:56:25 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,3 @@ void	sleep_think(t_philo *philo)
 	usleep((philo->time_to_die - philo->time_to_eat - \
 			philo->time_to_sleep) / 2 * 1000);
 }
-

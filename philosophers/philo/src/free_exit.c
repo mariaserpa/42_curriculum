@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 16:54:30 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/10/20 17:10:58 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/10/21 14:56:20 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,6 @@ void	free_structure(t_data *data)
 			i++;
 		}
 	}
-	//if (data->philo)
-	//	free(data->philo);
 	pthread_mutex_destroy(&data->data_lock);
 	pthread_mutex_destroy(&data->print_lock);
-	//free(data);
 }
-
