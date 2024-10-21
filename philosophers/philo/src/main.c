@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: malu <malu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 16:20:51 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/10/21 00:10:52 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/10/21 12:25:10 by malu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ int	main(int argc, char *argv[])
 	init_philo(&data);
 	start_routine(&data);
 	monitor_routine(&data);
-	join_threads(&data);
 	pe_exit(&data, NULL, EXIT_SUCCESS);
 	return (EXIT_SUCCESS);
 }
