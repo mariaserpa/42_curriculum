@@ -10,7 +10,8 @@ SRCDIR = ./src
 HEADERS_DIR = ./includes
 
 # Soure files
-SRC = $(SRCDIR)/main.c $(SRCDIR)/utils.c
+SRC = $(SRCDIR)/actions.c $(SRCDIR)/free_exit.c $(SRCDIR)/init.c \
+	$(SRCDIR)/main.c $(SRCDIR)/routine.c $(SRCDIR)/utils.c 
 
 # List of headers
 HEADERS = $(HEADERS_DIR)/philo.h

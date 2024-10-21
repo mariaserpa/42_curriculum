@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 18:16:40 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/10/18 17:00:21 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/10/20 23:50:21 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,13 @@ void	init_data(t_data *data, char *argv[])
 	data->time_to_die = (int)ft_custom_atol(argv[2]);
 	data->time_to_eat = (int)ft_custom_atol(argv[3]);
 	data->time_to_sleep = (int)ft_custom_atol(argv[4]);
-	data->num_meals = 0;
+	data->num_meals = -1;
 	if (argv[5])
 		data->num_meals = (int)ft_custom_atol(argv[5]);
 	data->t_start = time_in_millisec();
-	//pthread_mutex_init(&data->data_mutex, NULL);
-	//pthread_mutex_init(&data->print_mutex, NULL);
+	pthread_mutex_init(&data->data_lock, NULL);
+	pthread_mutex_init(&data->print_lock, NULL);
+	data->l_status = ALIVE;
 }
 
 void	init_forks(t_data *data)
@@ -58,6 +59,7 @@ void	init_philo(t_data *data)
 		data->philo[i].time_to_eat = data->time_to_eat;
 		data->philo[i].time_to_sleep = data->time_to_sleep;
 		data->philo[i].qt_meals = 0;
+		data->philo[i].t_lastmeal = 0;
 		data->philo[i].right_fork = &data->forks[i];
 		if (data->num_philo > 1)
 			data->philo[i].left_fork = &data->forks[(i + 1) % data->num_philo];

@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 16:20:51 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/10/18 16:12:28 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/10/21 00:10:52 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,8 @@ int	main(int argc, char *argv[])
 	init_forks(&data);
 	init_philo(&data);
 	start_routine(&data);
+	monitor_routine(&data);
+	join_threads(&data);
+	pe_exit(&data, NULL, EXIT_SUCCESS);
+	return (EXIT_SUCCESS);
 }
