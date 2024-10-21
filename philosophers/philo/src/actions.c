@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   actions.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: malu <malu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 14:56:13 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/10/21 14:56:25 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/10/21 18:52:08 by malu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ void	prepare_to_eat(t_philo *philo)
 		if (philo->qt_meals == 0 && philo->data->num_philo % 2 != 0 \
 			&& philo->id == 1)
 			usleep(philo->time_to_eat * 1000);
-		pthread_mutex_lock(philo->right_fork);
-		print_status(philo, "has taken a fork");
 		pthread_mutex_lock(philo->left_fork);
+		print_status(philo, "has taken a fork");
+		pthread_mutex_lock(philo->right_fork);
 		print_status(philo, "has taken a fork");
 	}
 }
