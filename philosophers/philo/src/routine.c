@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   routine.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: malu <malu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 16:12:57 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/10/21 14:43:07 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/10/22 00:52:26 by malu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,5 +106,4 @@ void	monitor_routine(t_data *data)
 		if (check_num_meals(data))
 			return ;
 	}
-	join_threads(data);
 }

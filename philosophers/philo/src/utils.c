@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: malu <malu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 17:15:59 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/10/21 00:02:01 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2024/10/22 01:01:40 by malu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,14 @@ void	join_threads(t_data *data)
 			pe_exit(data, "thread join error", EXIT_FAILURE);
 		i++;
 	}
+}
+
+int	check_philo(t_philo *philo)
+{
+	int	status;
+
+	pthread_mutex_lock(&philo->data->data_lock);
+	status = philo->data->l_status;
+	pthread_mutex_unlock(&philo->data->data_lock);
+	return (status);
 }
