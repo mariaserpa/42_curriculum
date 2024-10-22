@@ -6,7 +6,7 @@
 /*   By: malu <malu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 14:56:13 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/10/22 01:04:15 by malu             ###   ########.fr       */
+/*   Updated: 2024/10/22 13:07:29 by malu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ void	check_one_philo_case(t_philo *philo)
 
 void	prepare_to_eat(t_philo *philo)
 {
-	if (check_philo(philo) == DEAD)
-		return ;
+	// if (check_philo(philo) == DEAD)
+	// 	return ;
 	if (philo->id % 2 == 0)
 	{
 		if (philo->qt_meals == 0)

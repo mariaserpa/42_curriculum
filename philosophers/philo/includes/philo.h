@@ -6,7 +6,7 @@
 /*   By: malu <malu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 16:30:56 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/10/22 01:01:26 by malu             ###   ########.fr       */
+/*   Updated: 2024/10/22 13:07:47 by malu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ long	ft_custom_atol(const char*str);
 long	time_in_millisec(void);
 void	print_status(t_philo *philo, char *msg);
 void	join_threads(t_data *data);
-int		check_philo(t_philo *philo);
 
 void	pe_exit(t_data *data, char *msg, int code);
 void	free_structure(t_data *data);
