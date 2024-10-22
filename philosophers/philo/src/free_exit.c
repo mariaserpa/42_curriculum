@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_exit.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malu <malu@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 16:54:30 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/10/21 21:02:03 by malu             ###   ########.fr       */
+/*   Updated: 2024/10/22 16:11:36 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	free_structure(t_data *data)
 			pthread_mutex_destroy(&data->forks[i]);
 			i++;
 		}
+		free(data->philo);
 		free(data->forks);
 	}
 	pthread_mutex_destroy(&data->data_lock);

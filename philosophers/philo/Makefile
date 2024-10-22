@@ -1,7 +1,7 @@
 NAME = philo
 
 CC		= cc
-CFLAGS		= -Wall -Wextra -Werror -pthread
+CFLAGS		= -Wall -Wextra -Werror -pthread -g -fsanitize=thread
 RM		= rm -rf
 
 # Paths
@@ -11,7 +11,7 @@ HEADERS_DIR = ./includes
 
 # Soure files
 SRC = $(SRCDIR)/actions.c $(SRCDIR)/free_exit.c $(SRCDIR)/init.c \
-	$(SRCDIR)/main.c $(SRCDIR)/routine.c $(SRCDIR)/utils.c 
+	$(SRCDIR)/main.c $(SRCDIR)/routine.c $(SRCDIR)/utils.c
 
 # List of headers
 HEADERS = $(HEADERS_DIR)/philo.h
