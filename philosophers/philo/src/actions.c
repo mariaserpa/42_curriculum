@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   actions.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malu <malu@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 14:56:13 by mrabelo-          #+#    #+#             */
-/*   Updated: 2024/10/22 13:43:38 by malu             ###   ########.fr       */
+/*   Updated: 2024/10/23 14:25:43 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ void	sleep_think(t_philo *philo)
 	print_status(philo, "is thinking");
 	pthread_mutex_unlock(&philo->data->data_lock);
 	if (philo->time_to_eat > philo->time_to_die)
+		usleep(100);
+	else if (philo->time_to_die - philo->time_to_eat - philo->time_to_sleep < 0)
 		usleep(100);
 	else
 		usleep((philo->time_to_die - philo->time_to_eat - \
