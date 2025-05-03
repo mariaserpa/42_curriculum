@@ -1,30 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   newZombie.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/03 19:10:59 by mrabelo-          #+#    #+#             */
-/*   Updated: 2025/05/03 21:19:26 by mrabelo-         ###   ########.fr       */
+/*   Created: 2025/05/03 21:13:09 by mrabelo-          #+#    #+#             */
+/*   Updated: 2025/05/03 21:16:12 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-// Constructor doesn't need a return type
-Zombie::Zombie(std::string name)
+Zombie *newZombie(std::string name)
 {
-	this->name = name;
-}
-
-// Destructor doesn't need a return type
-Zombie::~Zombie()
-{
-	std::cout << this->name << " was destroyed" << std::endl;
-}
-
-void Zombie::announce()
-{
-	std::cout << this->name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+	Zombie *zombie = new Zombie(name); // Create a Zombie on the heap
+	return (zombie); //return the pointer to the Zombie because it can be used outside the function
 }

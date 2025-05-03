@@ -5,20 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/03 19:10:59 by mrabelo-          #+#    #+#             */
-/*   Updated: 2025/05/03 21:19:26 by mrabelo-         ###   ########.fr       */
+/*   Created: 2025/05/03 21:23:42 by mrabelo-          #+#    #+#             */
+/*   Updated: 2025/05/03 22:07:45 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-// Constructor doesn't need a return type
-Zombie::Zombie(std::string name)
-{
-	this->name = name;
-}
+Zombie::Zombie() {}
 
-// Destructor doesn't need a return type
 Zombie::~Zombie()
 {
 	std::cout << this->name << " was destroyed" << std::endl;
@@ -27,4 +22,9 @@ Zombie::~Zombie()
 void Zombie::announce()
 {
 	std::cout << this->name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+}
+
+void Zombie::setName(std::string name)
+{
+	this->name = name;
 }

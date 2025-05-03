@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/03 19:10:59 by mrabelo-          #+#    #+#             */
-/*   Updated: 2025/05/03 21:19:26 by mrabelo-         ###   ########.fr       */
+/*   Created: 2025/05/03 21:23:44 by mrabelo-          #+#    #+#             */
+/*   Updated: 2025/05/03 22:05:23 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
 
-// Constructor doesn't need a return type
-Zombie::Zombie(std::string name)
-{
-	this->name = name;
-}
+#include <iostream>
 
-// Destructor doesn't need a return type
-Zombie::~Zombie()
+class Zombie
 {
-	std::cout << this->name << " was destroyed" << std::endl;
-}
+	private:
+		std::string name;
 
-void Zombie::announce()
-{
-	std::cout << this->name << ": BraiiiiiiinnnzzzZ..." << std::endl;
-}
+	public:
+		Zombie(); //constructor
+		~Zombie(); //destructor
+	
+		void announce();
+		void setName(std::string name);
+};
+
+Zombie *zombieHorde(int N, std::string name);
+
+#endif

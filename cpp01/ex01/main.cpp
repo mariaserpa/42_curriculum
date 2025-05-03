@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/03 19:10:59 by mrabelo-          #+#    #+#             */
-/*   Updated: 2025/05/03 21:19:26 by mrabelo-         ###   ########.fr       */
+/*   Created: 2025/05/03 21:23:38 by mrabelo-          #+#    #+#             */
+/*   Updated: 2025/05/03 22:02:05 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-// Constructor doesn't need a return type
-Zombie::Zombie(std::string name)
+int main(void)
 {
-	this->name = name;
-}
+	int N = 4;
+	Zombie *horde = zombieHorde(N, "Zombie Horde");
 
-// Destructor doesn't need a return type
-Zombie::~Zombie()
-{
-	std::cout << this->name << " was destroyed" << std::endl;
-}
-
-void Zombie::announce()
-{
-	std::cout << this->name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+	for (int i = 0; i < N; ++i)
+	{
+		std::cout << i << ": ";
+		horde[i].announce();
+	}
+	delete[] horde;
+	return (0);
 }
