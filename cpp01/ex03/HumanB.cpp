@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 11:48:04 by mrabelo-          #+#    #+#             */
-/*   Updated: 2025/05/04 12:19:30 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2025/05/04 20:48:56 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 HumanB::HumanB(std::string name, Weapon *weapon)
 {
 	this->name = name;
-	this->weapon = NULL; // Pointer, so it can be null
+	this->weapon = weapon; // Pointer, so it can be null
 }
 // The variables name and weapon are default-initialized first 
 // because pointers can be initialized to null.
