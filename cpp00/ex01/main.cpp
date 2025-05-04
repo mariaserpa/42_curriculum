@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/02 15:42:29 by mrabelo-          #+#    #+#             */
-/*   Updated: 2025/05/02 15:59:02 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2025/05/04 17:37:45 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,12 @@ int main(void)
 	{
 		std::cout << "Please enter a command (Options: ADD, SEARCH, EXIT): " << std::endl;
 		std::getline(std::cin, input);
-		if (input == "ADD")
+		if (std::cin.eof())
+		{
+			std::cout << "\nExiting due to EOF." << std::endl;
+			exit(0);
+		}
+		else if (input == "ADD")
 			phonebook.addContact();
 		else if (input == "SEARCH")
 			phonebook.searchContact();

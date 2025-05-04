@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Phonebook.hpp                                      :+:      :+:    :+:   */
+/*   phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/02 15:42:41 by mrabelo-          #+#    #+#             */
-/*   Updated: 2025/05/02 15:57:39 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2025/05/04 17:45:14 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,14 @@
 
 class PhoneBook {
 	private:
-		Contact contact[8]; 
+		Contact contact[8];
 		int 	count;
 
 	public:
+		PhoneBook(void);
+		~PhoneBook(void);
+
+
 		void 	addContact();
 		void 	searchContact();
 };

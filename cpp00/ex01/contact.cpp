@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.cpp                                        :+:      :+:    :+:   */
+/*   contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/02 15:42:09 by mrabelo-          #+#    #+#             */
-/*   Updated: 2025/05/02 15:57:10 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2025/05/04 18:06:02 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ static void setStringField(std::string &field, const std::string prompt)
 
 	while(true)
 	{
-		std::cout << "ADD " << prompt;
+		std::cout << "ADD " << std::setw(20) << prompt;
 		std::getline(std::cin, input);
-		
+
 		if (std::cin.eof())
 		{
 			std::cout << "\nExiting due to EOF." << std::endl;
@@ -43,7 +43,7 @@ static bool checkPhoneNumber(const std::string &phoneNumber)
 	for (i = 0; i < phoneNumber.length(); ++i)
 	{
 		c = phoneNumber[i];
-		if (!std::isdigit(static_cast<unsigned int>(c)) && 
+		if (!std::isdigit(static_cast<unsigned int>(c)) &&
 			c != ' ' && c != '-' && c != '+' && c != '(' && c != ')')
 			return true;
 	}
@@ -56,9 +56,9 @@ static void setNumberField(std::string &field, const std::string prompt)
 
 	while(true)
 	{
-		std::cout << "ADD " << prompt;
+		std::cout << "ADD " << std::setw(20) << prompt;
 		std::getline(std::cin, input);
-		
+
 		if (std::cin.eof())
 		{
 			std::cout << "\nExiting due to EOF." << std::endl;
@@ -99,10 +99,11 @@ static void truncateAlign(const std::string &str)
 
 void Contact::displayContact(int index) const
 {
-	std::string indexStr = std::to_string(index + 1);
+	std::ostringstream oss;
 
+	oss << (index + 1);
 	std::cout << "|";
-	truncateAlign(indexStr);
+	truncateAlign(oss.str());
 	std::cout << "|";
 	truncateAlign(this->FirstName);
 	std::cout << "|";
@@ -115,9 +116,9 @@ void Contact::displayContact(int index) const
 
 void Contact::displayContactDetails(void) const
 {
-	std::cout << "First Name: " << this->FirstName << std::endl;
-	std::cout << "Last Name: " << this->LastName << std::endl;
-	std::cout << "Nick Name: " << this->NickName << std::endl;
-	std::cout << "Phone Number: " << this->PhoneNumber << std::endl;
-	std::cout << "Darkest Secret: " << this->DarkestSecret << std::endl;
+	std::cout << std::setw(16) << "First Name: " << this->FirstName << std::endl;
+	std::cout << std::setw(16) << "Last Name: " << this->LastName << std::endl;
+	std::cout << std::setw(16) << "Nick Name: " << this->NickName << std::endl;
+	std::cout << std::setw(16) << "Phone Number: " << this->PhoneNumber << std::endl;
+	std::cout << std::setw(16) << "Darkest Secret: " << this->DarkestSecret << std::endl;
 }
