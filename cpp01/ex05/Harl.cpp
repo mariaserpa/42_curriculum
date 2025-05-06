@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 14:02:45 by mrabelo-          #+#    #+#             */
-/*   Updated: 2025/05/06 14:21:47 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2025/05/06 14:27:12 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void Harl::complain(std::string level)
 	{
 		if (levels[i] == level)
 		{
-			(this->*functions[i])();
+			(this->*functions[i])(); //dereference the function pointer
 			return ;
 		}
 	}
