@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 11:48:07 by mrabelo-          #+#    #+#             */
-/*   Updated: 2025/05/04 12:18:49 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2025/05/07 12:23:11 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ class HumanB
 		Weapon *weapon; // Pointer because HumanB may not have a weapon
 
 	public:
-		HumanB(std::string name, Weapon *weapon = nullptr);
+		HumanB(std::string name, Weapon *weapon = NULL);
 		~HumanB();
-	
+
 		void attack(void);
 		void setWeapon(Weapon &weapon);
 };
