@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 16:22:14 by mrabelo-          #+#    #+#             */
-/*   Updated: 2025/06/06 11:31:05 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2025/06/06 16:19:05 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,10 @@ ClapTrap::ClapTrap(std::string name) : name(name), hitPoints(10), energyPoints(1
 	std::cout << "Parameterized constructor called for " << name << std::endl;
 }
 
-ClapTrap::ClapTrap(const ClapTrap &other) : name(other.name)
+ClapTrap::ClapTrap(const ClapTrap &other)
+							:	name(other.name),
+								hitPoints(other.hitPoints),
+								energyPoints(other.energyPoints), attackDamage(other.attackDamage)
 {
 	std::cout << "Copy constructor called" << std::endl;
 }
@@ -45,27 +48,31 @@ void ClapTrap::attack(const std::string &target)
 	if (hitPoints == 0 || energyPoints == 0)
 	{
 		if (hitPoints == 0)
-			std::cout << "ClapTrap " << name << " is dead! It has no hit points left." << std::endl;
+			std::cout << "ClapTrap " << name << " is dead! It has no hit points left to attack." << std::endl;
 		if (energyPoints == 0)
 			std::cout << "ClapTrap " << name << " has no energy points left to attack." << std::endl;
 		return ;
 	}
-	std::cout << "ClapTrap " << name << " attacks " << target << ", causing " << attackDamage << " points of damage!" << std::endl;
+	std::cout << "ClapTrap " << name << " attacks " << target << ", causing it to lose points of damage!" << std::endl;
 	energyPoints--;
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-	if (hitPoints == 0)
+	if (amount >= hitPoints)
 	{
-		std::cout << "ClapTrap " << name << " is already dead and cannot take more damage." << std::endl;
+		std::cout << "ClapTrap " << name << " is attacked and lost " << hitPoints << " hit points" << std::endl;
+		hitPoints = 0;
+		std::cout << "ClapTrap " << name << " died!" << std::endl;
 		return ;
 	}
-	std::cout << "ClapTrap " << name << " is attacked and lost " << amount << " hit points" << std::endl;
-	hitPoints -= amount;
-	if (hitPoints <= 0)
-		hitPoints = 0;
-	attackDamage = amount;
+	else
+	{
+		hitPoints -= amount;
+		attackDamage = amount;
+		std::cout << "ClapTrap " << name << " is attacked and lost " << amount << " hit points" << std::endl;
+	}
+
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
@@ -81,4 +88,19 @@ void ClapTrap::beRepaired(unsigned int amount)
 	std::cout << "ClapTrap " << name << " repairs itself, restoring " << amount << " hit points." << std::endl;
 	hitPoints += amount;
 	energyPoints--;
+}
+
+std::string ClapTrap::getName() const
+{
+	return name;
+}
+
+int ClapTrap::getHitPoints() const
+{
+	return hitPoints;
+}
+
+int ClapTrap::getEnergyPoints() const
+{
+	return energyPoints;
 }
