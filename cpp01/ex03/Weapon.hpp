@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 11:26:30 by mrabelo-          #+#    #+#             */
-/*   Updated: 2025/05/04 11:43:24 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2025/06/09 16:21:02 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ class Weapon
 {
 	private:
 		std::string type;
-		
+
 	public:
 		Weapon(std::string type);
 		~Weapon();
-		
-		std::string getType();
+
+		const std::string &getType();
 		void setType(std::string newType);
 };
 

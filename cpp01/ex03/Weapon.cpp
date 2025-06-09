@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 11:26:28 by mrabelo-          #+#    #+#             */
-/*   Updated: 2025/05/04 11:47:07 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2025/06/09 16:25:09 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Weapon::Weapon(std::string type)
 
 Weapon::~Weapon() {}
 
-std::string Weapon::getType()
+const std::string &Weapon::getType()
 {
 	return (this->type);
 }
