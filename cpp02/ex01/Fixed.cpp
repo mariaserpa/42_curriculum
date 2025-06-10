@@ -48,6 +48,8 @@ void Fixed::setRawBits(int const raw)
 	this->FixedPoint = raw;
 }
 
+//By dividing the fixed-point integer by this scaling factor,
+//the function reconstructs the original floating-point value that the fixed-point number represents.
 float Fixed::toFloat(void) const
 {
 	return static_cast<float>(this->FixedPoint) / (1 << FractionalBits);
