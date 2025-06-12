@@ -6,11 +6,11 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 16:16:31 by mrabelo-          #+#    #+#             */
-/*   Updated: 2025/06/12 20:27:50 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2025/06/12 21:39:00 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
 #include "Brain.hpp"
@@ -74,12 +74,10 @@ void testCat()
 
 void testAnimal()
 {
-	std::cout << "\n=== Animal Array Test ===\n" << std::endl;
-
-	std::cout << "-->Creating an array of 6 animals (3 Dogs and 3 Cats):\n" << std::endl;
+	std::cout << "\n=== Animal Test ===\n" << std::endl;
+	//const AAnimal *animal = new AAnimal(); // This line would cause a compilation error because AAnimal is an abstract class and cannot be instantiated directly.
 	int n = 6;
-	Animal *animals[n];
-
+	AAnimal *animals[n]; // Creating pointers to the abstract class, and use them to point to derived classes
 	for (int i = 0; i < n; i++)
 	{
 		if (i < n / 2 )
