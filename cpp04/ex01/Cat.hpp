@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/09 22:42:16 by mrabelo-          #+#    #+#             */
-/*   Updated: 2025/06/11 13:11:55 by mrabelo-         ###   ########.fr       */
+/*   Created: 2025/06/09 22:53:53 by mrabelo-          #+#    #+#             */
+/*   Updated: 2025/06/11 13:40:52 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef CAT_HPP
+#define CAT_HPP
+
 #include "Animal.hpp"
-#include "Dog.hpp"
-#include "Cat.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
+#include "Brain.hpp"
 
-void testCorrectClass();
-void testWrongClass();
-
-int main()
+class Cat : public Animal
 {
-	testCorrectClass();
-	testWrongClass();
-	return 0;
-}
+	private:
+		Brain *brain;
+	public:
+		Cat();
+		Cat(const Cat &other);
+		Cat &operator=(const Cat &other);
+		~Cat();
+
+		void makeSound() const;
+		Brain *getBrain() const;
+};
+
+#endif

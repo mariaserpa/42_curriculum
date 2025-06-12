@@ -1,9 +1,9 @@
-NAME = Polymorphism
+NAME = IDontWantToSetTheWorldOnFire
 
 CPP = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp test.cpp
+SRCS = main.cpp Brain.cpp Animal.cpp Cat.cpp Dog.cpp test.cpp
 
 OBJ_DIR = obj
 OBJS = $(SRCS:%.cpp=$(OBJ_DIR)/%.o)

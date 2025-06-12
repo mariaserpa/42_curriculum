@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/09 22:42:16 by mrabelo-          #+#    #+#             */
-/*   Updated: 2025/06/11 13:11:55 by mrabelo-         ###   ########.fr       */
+/*   Created: 2025/06/09 22:42:38 by mrabelo-          #+#    #+#             */
+/*   Updated: 2025/06/11 13:36:12 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "Dog.hpp"
-#include "Cat.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
+#ifndef ANIMAL_HPP
+#define ANIMAL_HPP
 
-void testCorrectClass();
-void testWrongClass();
+#include <iostream>
 
-int main()
+class Animal
 {
-	testCorrectClass();
-	testWrongClass();
-	return 0;
-}
+	protected:
+		std::string type;
+	
+	public:
+		Animal();
+		Animal(const Animal &other);
+		Animal &operator=(const Animal &other);
+		virtual ~Animal();
+
+		virtual void makeSound() const;
+		std::string getType() const;
+};
+
+#endif

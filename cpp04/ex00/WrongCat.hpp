@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/09 22:42:16 by mrabelo-          #+#    #+#             */
-/*   Updated: 2025/06/11 13:11:55 by mrabelo-         ###   ########.fr       */
+/*   Created: 2025/06/11 13:04:59 by mrabelo-          #+#    #+#             */
+/*   Updated: 2025/06/11 13:06:40 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "Dog.hpp"
-#include "Cat.hpp"
+#ifndef WRONGCAT_HPP
+#define WRONGCAT_HPP
+
 #include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
 
-void testCorrectClass();
-void testWrongClass();
-
-int main()
+class WrongCat : public WrongAnimal
 {
-	testCorrectClass();
-	testWrongClass();
-	return 0;
-}
+	public:
+		WrongCat();
+		WrongCat(const WrongCat &other);
+		WrongCat &operator=(const WrongCat &other);
+		~WrongCat();
+
+		void makeSound() const;
+};
+
+#endif
