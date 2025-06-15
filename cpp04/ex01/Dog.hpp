@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 22:57:13 by mrabelo-          #+#    #+#             */
-/*   Updated: 2025/06/11 13:46:51 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2025/06/15 19:53:31 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ class Dog : public Animal
 
 		void makeSound() const;
 		Brain *getBrain() const;
+		std::string getType() const;
 };
 
 #endif

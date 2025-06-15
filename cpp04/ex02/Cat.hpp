@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 22:53:53 by mrabelo-          #+#    #+#             */
-/*   Updated: 2025/06/12 21:09:59 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2025/06/15 19:55:51 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ class Cat : public AAnimal
 
 		void makeSound() const;
 		Brain *getBrain() const;
+		std::string getType() const;
 };
 
 #endif
