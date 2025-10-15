@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 19:53:12 by mrabelo-          #+#    #+#             */
-/*   Updated: 2025/10/14 19:30:36 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2025/10/14 21:36:56 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,32 @@ void Bureaucrat::decrementGrade()
 	grade++;
 }
 
+void Bureaucrat::signForm(AForm& form)
+{
+	try
+	{
+		form.beSigned(*this);
+		std::cout << name << " signed " << form.getName() << std::endl;
+	}
+	catch (const std::exception& e)
+	{
+		std::cout << name << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
+	}
+}
+
+void Bureaucrat::executeForm(AForm& form)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << name << " executed " << form.getName() << std::endl;
+	}
+	catch (const std::exception& e)
+	{
+		std::cout << name << " couldn't execute " << form.getName() << " because " << e.what() << std::endl;
+	}
+}
+
 const std::string& Bureaucrat::getName() const
 {
 	return name;
@@ -90,16 +116,5 @@ std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat)
 	return os;
 }
 
-void Bureaucrat::signForm(Form& form)
-{
-	try
-	{
-		form.beSigned(*this);
-		std::cout << name << " signed " << form.getName() << std::endl;
-	}
-	catch (const std::exception& e)
-	{
-		std::cout << name << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
-	}
-}
+
 

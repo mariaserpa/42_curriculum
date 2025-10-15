@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 19:53:45 by mrabelo-          #+#    #+#             */
-/*   Updated: 2025/10/13 22:54:36 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2025/10/14 19:53:15 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int main()
         
         // Test successful signing
         std::cout << "High rank bureaucrat signing form..." << std::endl;
-        form.beSigned(highRank);
+        highRank.signForm(form);
         std::cout << "After signing: " << form << std::endl;
         
         // Create another form for more tests
@@ -69,7 +69,7 @@ int main()
         
         // Test successful signing with exact grade
         std::cout << "Mid rank bureaucrat signing form2..." << std::endl;
-        form2.beSigned(midRank);
+        midRank.signForm(form2);
         std::cout << "After signing: " << form2 << std::endl;
 		std::cout << std::endl;
         
@@ -91,7 +91,7 @@ int main()
         std::cout << lowRank << std::endl;
         
         std::cout << "Low rank bureaucrat trying to sign executive form..." << std::endl;
-        form3.beSigned(lowRank);  // This should throw exception
+        lowRank.signForm(form3);  // This should throw exception
     }
     catch (const std::exception& e)
     {

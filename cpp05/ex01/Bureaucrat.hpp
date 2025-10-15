@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 19:53:21 by mrabelo-          #+#    #+#             */
-/*   Updated: 2025/10/13 20:41:16 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2025/10/14 20:15:56 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 
 #include <iostream>
 #include <string>
+#include <exception>
+#include "Form.hpp"
+
+class Form;
 
 class Bureaucrat
 {
@@ -44,6 +48,8 @@ class Bureaucrat
 			public:
 				virtual const char* what() const throw(); //should use virtual because we're overriding the virtual what() method from the base class
 		};
+
+		void signForm(Form& form);
 };
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
