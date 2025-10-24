@@ -6,14 +6,11 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 14:01:32 by mrabelo-          #+#    #+#             */
-/*   Updated: 2025/10/24 14:31:09 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2025/10/24 18:51:14 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Base.hpp"
-#include "A.hpp"
-#include "B.hpp"
-#include "C.hpp"
+#include "Class.hpp"
 #include <cstdlib> // for std::rand
 #include <iostream>
 
