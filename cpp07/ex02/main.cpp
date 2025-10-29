@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 16:35:35 by mrabelo-          #+#    #+#             */
-/*   Updated: 2025/10/29 12:09:49 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2025/10/29 12:16:38 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int main() {
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << e.what() << std::endl;
 	}
 	
     std::cout << "\n=== ALL TESTS COMPLETED ===" << std::endl;
