@@ -6,13 +6,14 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 09:53:59 by mrabelo-          #+#    #+#             */
-/*   Updated: 2025/10/28 10:38:44 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2025/10/28 11:20:33 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "whatever.hpp"
 
-int main() {
+int main()
+{
 	std::cout << "=== FUNCTION TEMPLATES DEMONSTRATION ===" << std::endl;
 
 	// 1. SWAP EXAMPLES
