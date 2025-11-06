@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 21:41:34 by mrabelo-          #+#    #+#             */
-/*   Updated: 2025/10/15 18:17:52 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2025/11/06 14:12:14 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,12 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 void ShrubberyCreationForm::action() const
 {
 	std::ofstream outFile;
-	outFile.open(target + "_shrubbery");
+	std::string filename = target + "_shrubbery";
+	outFile.open(filename.c_str());
+	outFile.open(filename.c_str());
 	if (!outFile.is_open())
 	{
-		std::cerr << "Error: Could not open file " << target + "_shrubbery" << " for writing." << std::endl;
+		std::cerr << "Error: Could not open file " << filename << " for writing." << std::endl;
 		return;
 	}
 
@@ -88,5 +90,5 @@ void ShrubberyCreationForm::action() const
 	outFile << "               ...;%@@@@@%%:;;;;,.." << std::endl;
 
 	outFile.close();
-	std::cout << "Shrubbery created and written to " << target + "_shrubbery" << std::endl;
+	std::cout << "Shrubbery created and written to " << filename << std::endl;
 }
