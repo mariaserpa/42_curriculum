@@ -17,12 +17,12 @@ run_test() {
     local input="$1"
     local description="$2"
     local expected="$3"
-    
+
     TOTAL_TESTS=$((TOTAL_TESTS + 1))
-    
+
     echo -e "${BLUE}=== Test $TOTAL_TESTS: $description ===${NC}"
     echo "Input: \"$input\""
-    
+
     # Get actual output
     local actual
     if [ "$input" = "EMPTY" ]; then
@@ -30,16 +30,16 @@ run_test() {
     else
         actual=$(./convert "$input" 2>&1)
     fi
-    
+
     echo "Expected:"
     echo -e "${YELLOW}$expected${NC}"
     echo "Actual:"
     echo "$actual"
-    
+
     # Compare results (normalize whitespace)
     local expected_clean=$(echo "$expected" | tr -d '\r' | sed 's/[[:space:]]*$//')
     local actual_clean=$(echo "$actual" | tr -d '\r' | sed 's/[[:space:]]*$//')
-    
+
     if [ "$expected_clean" = "$actual_clean" ]; then
         echo -e "${GREEN}✓ PASS${NC}"
         PASSED_TESTS=$((PASSED_TESTS + 1))
@@ -168,7 +168,7 @@ int: impossible
 float: +inff
 double: 5e+38"
 
-run_test "1e400" "Very large double (overflow)" "char: impossible
+run_test "1e400" "Very Large double (overflow)" "char: impossible
 int: impossible
 float: +inff
 double: +inf"

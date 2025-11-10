@@ -6,11 +6,13 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 14:35:54 by mrabelo-          #+#    #+#             */
-/*   Updated: 2025/10/23 17:27:18 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2025/11/10 15:19:49 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
+#include <cstdlib>
+#include <cerrno>
 
 // All private constructors and destructor wasn't defined here because no object of this class will be created.
 // static_cast can perform conversions between pointers to related classes and keeps intent explicit
@@ -49,7 +51,7 @@ static void printFloatConversion(double value)
 		std::cout << "nanf" << std::endl;
 	else if (std::isinf(value))
 		std::cout << (value > 0 ? "+inff" : "-inff") << std::endl;
-	else 
+	else
 	{
 		float f = static_cast<float>(value);
 		if (std::isinf(f))
@@ -100,18 +102,18 @@ static bool isValidNumber(const std::string& str)
 		i = 1;
 	if (i >= str.length())
 		return false;
-	
+
 	bool hasDot = false;
 	bool hasE = false;
 	bool hasDigitAfterE = false;
-	
+
 	for (; i < str.length(); ++i)
 	{
 		if (str[i] == '.')
 		{
 			if (hasDot || hasE) return false; // No dot after 'e'
 			hasDot = true;
-		} 
+		}
 		else if (str[i] == 'e' || str[i] == 'E')
 		{
 			if (hasE || i == 0 || (i == 1 && (str[0] == '+' || str[0] == '-')))
@@ -121,21 +123,21 @@ static bool isValidNumber(const std::string& str)
 			// Check for optional sign after 'e'
 			if (i + 1 < str.length() && (str[i + 1] == '+' || str[i + 1] == '-'))
 			{
-				i++; // Skip the sign  
-				if (i + 1 >= str.length()) 
+				i++; // Skip the sign
+				if (i + 1 >= str.length())
 					return false; // Must have digits after sign
 			}
 		}
 		else if (std::isdigit(static_cast<unsigned char>(str[i])))
 		{
-			if (hasE) 
+			if (hasE)
 				hasDigitAfterE = true; // found a digit after 'e'
 		}
 		else
 				return false;
 	}
 	// If have 'e', must have at least one digit after it
-	if (hasE && !hasDigitAfterE) 
+	if (hasE && !hasDigitAfterE)
 		return false;
 	return true;
 }
@@ -147,13 +149,13 @@ static bool isInt(const std::string& str)
 
 static bool isFloat(const std::string& str)
 {
-	if (str.length() < 2 || str[str.length() - 1] != 'f') 
+	if (str.length() < 2 || str[str.length() - 1] != 'f')
 		return false;
-	
+
 	std::string number = str.substr(0, str.length() - 1);
-	if (!isValidNumber(number)) 
+	if (!isValidNumber(number))
 		return false;
-	
+
 	// Accept if it has a decimal point OR scientific notation
 	return (number.find('.') != std::string::npos || number.find('e') != std::string::npos || number.find('E') != std::string::npos);
 }
@@ -161,7 +163,7 @@ static bool isFloat(const std::string& str)
 static bool isDouble(const std::string& str)
 {
 	if (!isValidNumber(str)) return false;  // This might be failing
-	
+
 	return (str.find('.') != std::string::npos || str.find('e') != std::string::npos || str.find('E') != std::string::npos);
 }
 
@@ -182,25 +184,30 @@ static void handleChar(const std::string& str)
 static void handleNumeric(const std::string& str, bool isFloat = false)
 {
 	std::string parseStr = str;
-	if (isFloat) {
+	if (isFloat)
 		parseStr = str.substr(0, str.length() - 1); // Remove 'f'
-	}
-	
-	std::istringstream iss(parseStr);
-	double value;
-	iss >> value;
-	
-	// Check if parsing failed OR if we got infinity due to overflow
-	if (iss.fail() || std::isinf(value))
+
+	const char *cstr = parseStr.c_str();
+	char *endptr = NULL;
+	errno = 0;
+	double value = std::strtod(cstr, &endptr);
+
+	// no characters consumed or leftover chars -> invalid input
+	if (endptr == cstr || *endptr != '\0')
 	{
-		if (std::isinf(value))
-			printAllConversions(value); // Handle infinity case
-		else
-			printImpossible();
-	} 
-	else
+		printImpossible();
+		return;
+	}
+
+	// strtod returns +/-inf on overflow and sets errno = ERANGE
+	if (errno == ERANGE || std::isinf(value))
+	{
 		printAllConversions(value);
+		return;
+	}
+	printAllConversions(value);
 }
+
 
 static void handlePseudoLiteral(const std::string& str)
 {
@@ -211,12 +218,12 @@ static void handlePseudoLiteral(const std::string& str)
 	{
 		std::cout << "float: nanf" << std::endl;
 		std::cout << "double: nan" << std::endl;
-	} 
+	}
 	else if (str == "+inf" || str == "+inff")
 	{
 		std::cout << "float: +inff" << std::endl;
 		std::cout << "double: +inf" << std::endl;
-	} 
+	}
 	else if (str == "-inf" || str == "-inff")
 	{
 		std::cout << "float: -inff" << std::endl;
