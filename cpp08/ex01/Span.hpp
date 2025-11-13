@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 14:06:44 by mrabelo-          #+#    #+#             */
-/*   Updated: 2025/11/05 16:51:10 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2025/11/13 16:13:34 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class Span
 	private:
 		unsigned int		maxSize; // maximum capacity
 		std::vector<int>	numbers; // container to hold the numbers
+		//vector fits here because Span needs sequence of ints
 	public:
 		Span();
 		explicit Span(unsigned int n);
@@ -33,6 +34,7 @@ class Span
 		unsigned int	shortestSpan() const;
 		unsigned int	longestSpan() const;
 
+		//Iterators are used to access and iterate by "pointing" to them.
 		template<typename Iterator>
 		void addRange(Iterator begin, Iterator end)
 		{
