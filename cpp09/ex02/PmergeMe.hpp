@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 11:48:39 by mrabelo-          #+#    #+#             */
-/*   Updated: 2025/11/23 20:23:24 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2025/11/23 21:14:54 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 #include <climits>
 #include <cmath>
 #include <algorithm>
+#include <ctime> 
+#include <cstdlib>
 
 
 class PmergeMe
@@ -35,7 +37,18 @@ class PmergeMe
 		static void binaryInsertVector(std::vector<int>& sorted, int value, int left, int right, int& comparisons);
 		static void binaryInsertDeque(std::deque<int>& sorted, int value, int left, int right, int& comparisons);
 		static bool compare(int a, int b, int& comparisons);
+
+		// --- NEW helpers for the vector version ---
+		static void pairAndGroupVector(const std::vector<int>& vec, int left, int right, std::vector<int>& larger, 
+										std::vector<int>& smaller, int& straggler, int& comparisons);
+
+		static void reorderPairsVector(const std::vector<int>& largerSorted, std::vector<int>& largerOriginal,
+										std::vector<int>& smaller);
+
+		static void buildMainChainVector(std::vector<int>& main, const std::vector<int>& smaller,
+										const std::vector<int>& largerOriginal, int straggler, int& comparisons);
 };
+
 
 
 template<typename Container>

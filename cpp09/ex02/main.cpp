@@ -6,12 +6,11 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 11:47:45 by mrabelo-          #+#    #+#             */
-/*   Updated: 2025/11/23 20:50:00 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2025/11/23 20:57:14 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
-#include <sys/time.h>
 
 static void validateArgs(int argc, char**argv)
 {
@@ -34,8 +33,9 @@ static int	maxComparisonsFJ(int n) //formula found on https://dev.to/emuminov/hu
 
 	for (int i = 1; i <= n; ++i)
 	{
-		double	value = (3.0 / 4.0) * i;
-		sum += static_cast<int>(ceil(log2(value)));
+		double value = (3.0 / 4.0) * i;
+		double log2value = std::log(value) / std::log(2.0);
+		sum += static_cast<int>(std::ceil(log2value));
 	}
 	return sum;
 }
