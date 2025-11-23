@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 11:47:45 by mrabelo-          #+#    #+#             */
-/*   Updated: 2025/11/23 20:57:14 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2025/11/23 23:01:13 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,6 @@ static int	maxComparisonsFJ(int n) //formula found on https://dev.to/emuminov/hu
 	return sum;
 }
 
-
-
 int main(int argc, char**argv)
 {
 	if (argc < 2)
@@ -49,12 +47,17 @@ int main(int argc, char**argv)
 		std::cerr << "Error: No input numbers provided." << std::endl;
 		return 1;
 	}
+	
 	try 
 	{
 		validateArgs(argc, argv);
+		
+		//PmergeMe::setDebug(true);
+		// Parse input once
 		std::vector<int> inputVec;
-		inputVec.reserve(argc - 1); //reserve space to avoid reallocations. Allocates memory but doesn't construct elements until push_back()
-		std::deque<int> inputDeque; //reserve doesn't exist for deque but it's less of a concern due to its structure
+		inputVec.reserve(argc - 1);
+		std::deque<int> inputDeque;
+		
 		for (int i = 1; i < argc; i++)
 		{
 			int number = std::atoi(argv[i]);
@@ -62,32 +65,45 @@ int main(int argc, char**argv)
 			inputDeque.push_back(number);
 		}
 		
-		int countComparisonsVec = 0;
-		int countComparisonsDeque = 0;
-
-		printContainer(inputVec, "Vector", true);
-		double vecTimeStart = static_cast<double>(std::clock());
-		PmergeMe::mergeInsertSortVector(inputVec, 0, static_cast<int>(inputVec.size()), countComparisonsVec);
-		double vecTimeEnd = static_cast<double>(std::clock());
-		printContainer(inputVec, "Vector", false);
+		// Print before state
+		printContainer(inputVec, true);
+		//printContainer(inputDeque, true);
 		
-		printContainer(inputDeque, "Deque", true);
-		double dequeTimeStart = static_cast<double>(std::clock());
-		PmergeMe::mergeInsertSortDeque(inputDeque, 0, static_cast<int>(inputDeque.size()), countComparisonsDeque);
-		double dequeTimeEnd = static_cast<double>(std::clock());
-		printContainer(inputDeque, "Deque", false);
-
+		// Sort vector and measure time
+		int countComparisonsVec = 0;
+		clock_t vecTimeStart = std::clock();
+		PmergeMe::mergeInsertSortVector(inputVec, countComparisonsVec);
+		clock_t vecTimeEnd = std::clock();
+		
+		// Sort deque and measure time
+		int countComparisonsDeque = 0;
+		clock_t dequeTimeStart = std::clock();
+		PmergeMe::mergeInsertSortDeque(inputDeque, countComparisonsDeque);
+		clock_t dequeTimeEnd = std::clock();
+		
+		// Print after state
+		printContainer(inputVec, false);
+		//printContainer(inputDeque, false);
+		
+		// Calculate and display timing
 		double vecTimeMicros = (vecTimeEnd - vecTimeStart) * 1e6 / CLOCKS_PER_SEC;
 		double dequeTimeMicros = (dequeTimeEnd - dequeTimeStart) * 1e6 / CLOCKS_PER_SEC;
-
+		
 		std::cout << "Time to process a range of " << inputVec.size() 
-					<< " elements with std::vector : " << vecTimeMicros << " us" << std::endl;
+				<< " elements with std::vector : " << std::fixed 
+				<< std::setprecision(2) << vecTimeMicros << " us" << std::endl;
 		std::cout << "Time to process a range of " << inputDeque.size() 
-					<< " elements with std::deque  : " << dequeTimeMicros << " us" << std::endl;
-
+				<< " elements with std::deque  : " << std::fixed 
+				<< std::setprecision(2) << dequeTimeMicros << " us" << std::endl;
+		
+		// Verify sorting
+		IsSorted(inputVec, "std::vector");
+		IsSorted(inputDeque, "std::deque");
+		
+		// Display comparison statistics
 		std::cout << "Comparisons with std::vector: " << countComparisonsVec << std::endl;
 		std::cout << "Comparisons with std::deque : " << countComparisonsDeque << std::endl;
-
+		
 		int maxComparisons = maxComparisonsFJ(static_cast<int>(inputVec.size()));
 		std::cout << "Theoretical maximum (Ford-Johnson): ~" << maxComparisons << " comparisons" << std::endl;
 	}
