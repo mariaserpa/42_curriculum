@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 11:47:45 by mrabelo-          #+#    #+#             */
-/*   Updated: 2025/11/17 16:00:46 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2025/11/23 20:50:00 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,8 @@ int main(int argc, char**argv)
 		double dequeTimeEnd = static_cast<double>(std::clock());
 		printContainer(inputDeque, "Deque", false);
 
-		double vecTimeMicros = vecTimeEnd - vecTimeStart;
-		double dequeTimeMicros = dequeTimeEnd - dequeTimeStart;
+		double vecTimeMicros = (vecTimeEnd - vecTimeStart) * 1e6 / CLOCKS_PER_SEC;
+		double dequeTimeMicros = (dequeTimeEnd - dequeTimeStart) * 1e6 / CLOCKS_PER_SEC;
 
 		std::cout << "Time to process a range of " << inputVec.size() 
 					<< " elements with std::vector : " << vecTimeMicros << " us" << std::endl;
