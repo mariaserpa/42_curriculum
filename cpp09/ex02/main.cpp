@@ -6,15 +6,12 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 11:47:45 by mrabelo-          #+#    #+#             */
-/*   Updated: 2025/11/16 21:35:11 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2025/11/17 16:00:46 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
-#include <iostream>
-#include <vector>
-#include <deque> 
-#include <sstream>
+#include <sys/time.h>
 
 static void validateArgs(int argc, char**argv)
 {
@@ -31,6 +28,20 @@ static void validateArgs(int argc, char**argv)
 	}
 }
 
+static int	maxComparisonsFJ(int n) //formula found on https://dev.to/emuminov/human-explanation-and-step-by-step-visualisation-of-the-ford-johnson-algorithm-5g91
+{
+	int	sum = 0;
+
+	for (int i = 1; i <= n; ++i)
+	{
+		double	value = (3.0 / 4.0) * i;
+		sum += static_cast<int>(ceil(log2(value)));
+	}
+	return sum;
+}
+
+
+
 int main(int argc, char**argv)
 {
 	if (argc < 2)
@@ -46,8 +57,9 @@ int main(int argc, char**argv)
 		std::deque<int> inputDeque; //reserve doesn't exist for deque but it's less of a concern due to its structure
 		for (int i = 1; i < argc; i++)
 		{
-			inputVec.push_back(std::atoi(argv[i]));
-			inputDeque.push_back(std::atoi(argv[i]));
+			int number = std::atoi(argv[i]);
+			inputVec.push_back(number);
+			inputDeque.push_back(number);
 		}
 		
 		int countComparisonsVec = 0;
@@ -55,18 +67,29 @@ int main(int argc, char**argv)
 
 		printContainer(inputVec, "Vector", true);
 		double vecTimeStart = static_cast<double>(std::clock());
-		//PmergeMe::mergeInsertSortVector
+		PmergeMe::mergeInsertSortVector(inputVec, 0, static_cast<int>(inputVec.size()), countComparisonsVec);
 		double vecTimeEnd = static_cast<double>(std::clock());
 		printContainer(inputVec, "Vector", false);
 		
 		printContainer(inputDeque, "Deque", true);
 		double dequeTimeStart = static_cast<double>(std::clock());
-		//PmergeMe::mergeInsertSortDeque
+		PmergeMe::mergeInsertSortDeque(inputDeque, 0, static_cast<int>(inputDeque.size()), countComparisonsDeque);
 		double dequeTimeEnd = static_cast<double>(std::clock());
 		printContainer(inputDeque, "Deque", false);
 
-		std::cout << "Time taken for vector: " << (vecTimeEnd - vecTimeStart) / (CLOCKS_PER_SEC / 1000000.0) << " us" << std::endl;
-		std::cout << "Time taken for deque: " << (dequeTimeEnd - dequeTimeStart) / (CLOCKS_PER_SEC / 1000000.0) << " us" << std::endl;
+		double vecTimeMicros = vecTimeEnd - vecTimeStart;
+		double dequeTimeMicros = dequeTimeEnd - dequeTimeStart;
+
+		std::cout << "Time to process a range of " << inputVec.size() 
+					<< " elements with std::vector : " << vecTimeMicros << " us" << std::endl;
+		std::cout << "Time to process a range of " << inputDeque.size() 
+					<< " elements with std::deque  : " << dequeTimeMicros << " us" << std::endl;
+
+		std::cout << "Comparisons with std::vector: " << countComparisonsVec << std::endl;
+		std::cout << "Comparisons with std::deque : " << countComparisonsDeque << std::endl;
+
+		int maxComparisons = maxComparisonsFJ(static_cast<int>(inputVec.size()));
+		std::cout << "Theoretical maximum (Ford-Johnson): ~" << maxComparisons << " comparisons" << std::endl;
 	}
 	catch (const std::exception& e)
 	{

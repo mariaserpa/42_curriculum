@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 20:10:40 by mrabelo-          #+#    #+#             */
-/*   Updated: 2025/11/16 18:15:55 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2025/11/23 16:40:04 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static double applyOperation(double leftOp, double rightOp, char op)
 
 double RPN::executeCalc(const std::string &string)
 {
-	std::stack<double> rpn;
+	std::stack<double, std::list<double> > rpn;
 
 	if (string.empty() || isWhitespaceOnly(string))
 		throw std::runtime_error("Empty expression");
@@ -84,50 +84,3 @@ double RPN::executeCalc(const std::string &string)
 		throw std::runtime_error("The RPN expression is invalid");
 	return rpn.top();
 }
-
-// double RPN::executeCalc(const std::string &string)
-// {
-// 	std::list<double> rpn; // Using list instead of stack
-
-// 	if (string.empty() || isWhitespaceOnly(string))
-// 		throw std::runtime_error("Empty expression");
-
-// 	for (size_t i = 0; i < string.length(); i++)
-// 	{
-// 		char token = string[i];
-// 		if (std::isspace(token))
-// 			continue;
-// 		if (std::isdigit(token))
-// 		{
-// 			if (i + 1 < string.length() && std::isdigit(string[i + 1]))
-// 				throw std::runtime_error("Invalid number: multi-digit numbers are not supported");
-// 			else if (i + 1 < string.length() && !std::isspace(string[i + 1]) && 
-// 					(std::isdigit(string[i + 1]) || std::string("+-*/").find(string[i + 1]) != std::string::npos))
-// 				throw std::runtime_error("There must be a space after operands");
-			
-// 			// Push to back (simulate stack push)
-// 			rpn.push_back(static_cast<double>(token - '0'));
-// 		}
-// 		else if (std::string("+-*/").find(token) != std::string::npos)
-// 		{
-// 			if (rpn.size() < 2)
-// 				throw std::runtime_error("Insufficient operands for operation");
-			
-// 			// Pop from back (simulate stack behavior - LIFO)
-// 			double rightOp = rpn.back(); // Get last element (top of stack)
-// 			rpn.pop_back(); // Remove it
-// 			double leftOp = rpn.back(); // Get new last element
-// 			rpn.pop_back(); // Remove it
-
-// 			double result = applyOperation(leftOp, rightOp, token);
-// 			rpn.push_back(result); // Push result back
-// 		}
-// 		else
-// 			throw std::runtime_error("Invalid character: " + std::string(1, token));
-// 	}
-	
-// 	if (rpn.size() != 1)
-// 		throw std::runtime_error("The RPN expression is invalid");
-	
-// 	return rpn.back(); // Return the final result
-// }

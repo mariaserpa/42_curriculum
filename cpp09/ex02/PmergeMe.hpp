@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 11:48:39 by mrabelo-          #+#    #+#             */
-/*   Updated: 2025/11/16 21:15:34 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2025/11/17 16:06:07 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,24 @@ void printContainer(const Container& container, const std::string& containerName
 	std::cout << std::endl;
 }
 
+#include <iostream>
+#include <vector>
+#include <deque>
+#include <sstream>
+#include <stdexcept>
+#include <climits>
+#include <cmath>
+#include <algorithm>
+
 class PmergeMe
 {
-	private: //constructors and destructor in private to prevent instantiation
-		PmergeMe();
-		PmergeMe(const PmergeMe &other);
-		PmergeMe &operator=(const PmergeMe &other);
-		~PmergeMe();
-
 	public:
-		static void mergeInsertSortVector(std::vector<int> &vec, int left, int right);
-		static void mergeInsertSortDeque(std::deque<int> &deq, int left, int right);
+		static void mergeInsertSortVector(std::vector<int>& vec, int left, int right, int& comparisons);
+		static void mergeInsertSortDeque(std::deque<int>& deq, int left, int right, int& comparisons);
+
+	private:
+		static std::vector<int> generateJacobsthalSequence(int n);
+		static void binaryInsertVector(std::vector<int>& sorted, int value, int left, int right, int& comparisons);
+		static void binaryInsertDeque(std::deque<int>& sorted, int value, int left, int right, int& comparisons);
+		static bool compare(int a, int b, int& comparisons);
 };
