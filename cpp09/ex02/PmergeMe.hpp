@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 11:48:39 by mrabelo-          #+#    #+#             */
-/*   Updated: 2025/11/23 22:25:49 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2025/11/24 20:35:24 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ class PmergeMe
 		static bool _debug;
 
 		static void debugPrintVector(const std::string& label, const std::vector<int>& v, int comparisons);
-		static void debugPrintDeque(const std::string& label, const std::deque<int>& d, int comparisons);
 		
 		static void binaryInsertVector(std::vector<int>& sorted, int value, int right, int& comparisons);
 		static void binaryInsertDeque(std::deque<int>& sorted, int value, int right, int& comparisons);
@@ -69,7 +68,6 @@ class PmergeMe
 										const std::deque<int>& largerOriginal, int straggler, int& comparisons);
 };
 
-
 template<typename Container>
 Container PmergeMe::generateJacobsthalSequence(int n) // Formula: J(n) = J(n-1) + 2*J(n-2)
 {
@@ -93,7 +91,6 @@ Container PmergeMe::generateJacobsthalSequence(int n) // Formula: J(n) = J(n-1) 
 	return jacobsthal;
 }
 
-
 template<typename Container>
 void printContainer(const Container& container, bool is_before)
 {
@@ -113,7 +110,7 @@ void printContainer(const Container& container, bool is_before)
 template <typename Container>
 void IsSorted(const Container& c, const std::string& containerName)
 {
-	std::cout << "Container " << std::left << std::setw(16) << containerName << " is ";
+	std::cout << "Container " << std::left << std::setw(12) << containerName << " is ";
 	
 	if (std::adjacent_find(c.begin(), c.end(), std::greater<int>()) == c.end())
 		std::cout << "SORTED" << std::endl;

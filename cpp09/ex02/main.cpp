@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 11:47:45 by mrabelo-          #+#    #+#             */
-/*   Updated: 2025/11/23 23:01:13 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2025/11/24 20:34:24 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ int main(int argc, char**argv)
 		
 		// Print before state
 		printContainer(inputVec, true);
-		//printContainer(inputDeque, true);
 		
 		// Sort vector and measure time
 		int countComparisonsVec = 0;
@@ -83,7 +82,6 @@ int main(int argc, char**argv)
 		
 		// Print after state
 		printContainer(inputVec, false);
-		//printContainer(inputDeque, false);
 		
 		// Calculate and display timing
 		double vecTimeMicros = (vecTimeEnd - vecTimeStart) * 1e6 / CLOCKS_PER_SEC;
