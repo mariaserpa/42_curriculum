@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 11:47:45 by mrabelo-          #+#    #+#             */
-/*   Updated: 2025/11/24 20:34:24 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2025/11/24 21:09:50 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ int main(int argc, char**argv)
 		validateArgs(argc, argv);
 		
 		//PmergeMe::setDebug(true);
-		// Parse input once
 		std::vector<int> inputVec;
 		inputVec.reserve(argc - 1);
 		std::deque<int> inputDeque;
@@ -65,25 +64,20 @@ int main(int argc, char**argv)
 			inputDeque.push_back(number);
 		}
 		
-		// Print before state
 		printContainer(inputVec, true);
 		
-		// Sort vector and measure time
 		int countComparisonsVec = 0;
 		clock_t vecTimeStart = std::clock();
 		PmergeMe::mergeInsertSortVector(inputVec, countComparisonsVec);
 		clock_t vecTimeEnd = std::clock();
 		
-		// Sort deque and measure time
 		int countComparisonsDeque = 0;
 		clock_t dequeTimeStart = std::clock();
 		PmergeMe::mergeInsertSortDeque(inputDeque, countComparisonsDeque);
 		clock_t dequeTimeEnd = std::clock();
 		
-		// Print after state
 		printContainer(inputVec, false);
 		
-		// Calculate and display timing
 		double vecTimeMicros = (vecTimeEnd - vecTimeStart) * 1e6 / CLOCKS_PER_SEC;
 		double dequeTimeMicros = (dequeTimeEnd - dequeTimeStart) * 1e6 / CLOCKS_PER_SEC;
 		
@@ -94,11 +88,9 @@ int main(int argc, char**argv)
 				<< " elements with std::deque  : " << std::fixed 
 				<< std::setprecision(2) << dequeTimeMicros << " us" << std::endl;
 		
-		// Verify sorting
 		IsSorted(inputVec, "std::vector");
 		IsSorted(inputDeque, "std::deque");
 		
-		// Display comparison statistics
 		std::cout << "Comparisons with std::vector: " << countComparisonsVec << std::endl;
 		std::cout << "Comparisons with std::deque : " << countComparisonsDeque << std::endl;
 		

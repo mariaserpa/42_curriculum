@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 11:48:41 by mrabelo-          #+#    #+#             */
-/*   Updated: 2025/11/24 20:44:10 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2025/11/24 21:13:03 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -214,7 +214,7 @@ void PmergeMe::mergeInsertSortVector(std::vector<int>& vec, int& comparisons)
 	int straggler = -1;
 
 	pairAndGroupVector(vec, larger, smaller, straggler, comparisons);
-
+	
 	if (_debug)
 	{
 		debugPrintVector("Vector pairing - larger", larger, comparisons);
