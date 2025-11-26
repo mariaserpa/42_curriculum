@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 11:48:39 by mrabelo-          #+#    #+#             */
-/*   Updated: 2025/11/24 20:35:24 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2025/11/26 16:07:49 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 #include <climits>
 #include <cmath>
 #include <algorithm>
-#include <ctime> 
+#include <ctime>
 #include <cstdlib>
 #include <iomanip>
 #include <functional>
@@ -37,17 +37,21 @@ class PmergeMe
 		static void setDebug(bool enabled);
 
 	private:
+		PmergeMe();
+		PmergeMe(const PmergeMe& other);
+		PmergeMe& operator=(const PmergeMe& other);
+		~PmergeMe();
 
 		static bool _debug;
 
 		static void debugPrintVector(const std::string& label, const std::vector<int>& v, int comparisons);
-		
+
 		static void binaryInsertVector(std::vector<int>& sorted, int value, int right, int& comparisons);
 		static void binaryInsertDeque(std::deque<int>& sorted, int value, int right, int& comparisons);
 		static bool compare(int a, int b, int& comparisons);
 
 		// --- vector helpers ---
-		static void pairAndGroupVector(const std::vector<int>& vec, std::vector<int>& larger, 
+		static void pairAndGroupVector(const std::vector<int>& vec, std::vector<int>& larger,
 										std::vector<int>& smaller, int& straggler, int& comparisons);
 
 		static void reorderPairsVector(const std::vector<int>& largerSorted, std::vector<int>& largerOriginal,
@@ -58,13 +62,13 @@ class PmergeMe
 
 
 		// --- deque helpers ---
-		static void pairAndGroupDeque(const std::deque<int>& deq, std::deque<int>& larger, 
+		static void pairAndGroupDeque(const std::deque<int>& deq, std::deque<int>& larger,
 										std::deque<int>& smaller, int& straggler, int& comparisons);
 
 		static void reorderPairsDeque(const std::deque<int>& largerSorted, std::deque<int>& largerOriginal,
 										std::deque<int>& smaller);
 
-		static void buildMainChainDeque(std::deque<int>& main, const std::deque<int>& smaller, 
+		static void buildMainChainDeque(std::deque<int>& main, const std::deque<int>& smaller,
 										const std::deque<int>& largerOriginal, int straggler, int& comparisons);
 };
 
@@ -76,9 +80,9 @@ Container PmergeMe::generateJacobsthalSequence(int n) // Formula: J(n) = J(n-1) 
 
 	jacobsthal.push_back(1);
 	if (n == 1) return jacobsthal;
-	
+
 	jacobsthal.push_back(1);
-	
+
 	int prev2 = 1, prev1 = 1;
 	while (true)
 	{
@@ -111,7 +115,7 @@ template <typename Container>
 void IsSorted(const Container& c, const std::string& containerName)
 {
 	std::cout << "Container " << std::left << std::setw(12) << containerName << " is ";
-	
+
 	if (std::adjacent_find(c.begin(), c.end(), std::greater<int>()) == c.end())
 		std::cout << "SORTED" << std::endl;
 	else
