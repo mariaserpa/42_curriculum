@@ -6,12 +6,11 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 19:35:04 by mrabelo-          #+#    #+#             */
-/*   Updated: 2025/11/15 21:41:40 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2025/11/26 12:33:10 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
-#include <iostream>
 
 int main(int argc, char**argv)
 {

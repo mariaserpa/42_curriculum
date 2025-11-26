@@ -6,7 +6,7 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 12:48:40 by mrabelo-          #+#    #+#             */
-/*   Updated: 2025/11/15 18:54:23 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2025/11/26 12:23:33 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static bool checkDate(const std::string &date)
 
 	for (size_t i = 0; i < date.length(); ++i) 
 	{
-		if (i == 4 || i == 7) // skip "-""
+		if (i == 4 || i == 7) // skip "-"
 			continue;
 		if (!std::isdigit(date[i])) //check if all characters are digits
 			return false;
@@ -121,7 +121,7 @@ void BitcoinExchange::processInput()
 		std::string date = line.substr(0, pipe - 1);
 		if (!checkDate(date))
 		{
-			std::cout << "Error: invalid date => " << date << std::endl;
+			std::cerr << "Error: invalid date => " << date << std::endl;
 			continue;
 		}
 		std::string valueStr = line.substr(pipe + 2);

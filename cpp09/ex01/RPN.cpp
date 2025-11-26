@@ -6,13 +6,11 @@
 /*   By: mrabelo- <mrabelo-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 20:10:40 by mrabelo-          #+#    #+#             */
-/*   Updated: 2025/11/23 16:40:04 by mrabelo-         ###   ########.fr       */
+/*   Updated: 2025/11/26 12:31:00 by mrabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
-#include <stack>
-#include <list>
 
 static bool isWhitespaceOnly(const std::string &str)
 {
@@ -57,12 +55,13 @@ double RPN::executeCalc(const std::string &string)
 			continue;
 		if (std::isdigit(token))
 		{
-			if (std::isdigit(string[i + 1]) && i + 1 < string.length())
+			if (i + 1 < string.length() && std::isdigit(string[i + 1]))
 				throw std::runtime_error("Invalid number: multi-digit numbers are not supported");
-			else if (!std::isspace(string[i + 1]) && i + 1 < string.length() && (std::isdigit(string[i + 1]) || std::string("+-*/").find(string[i + 1]) != std::string::npos))
+			if (i + 1 < string.length() && !std::isspace(string[i + 1]) &&
+				(std::isdigit(string[i + 1]) || std::string("+-*/").find(string[i + 1]) != std::string::npos))
 				throw std::runtime_error("There must be a space after operands");
 			
-			rpn.push(static_cast<double>(token - '0'));
+				rpn.push(static_cast<double>(token - '0'));
 		}
 		else if (std::string("+-*/").find(token) != std::string::npos)
 		{
